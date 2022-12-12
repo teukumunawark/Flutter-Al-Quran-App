@@ -1,4 +1,4 @@
-# al_quran_app
+# AL QURAN APPS
 
 A new Flutter project.
 
