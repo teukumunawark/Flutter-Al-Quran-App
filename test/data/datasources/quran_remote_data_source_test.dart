@@ -81,5 +81,19 @@ void main() {
         expect(result, equals(tDetailSurahModel));
       },
     );
+
+    test('should throw Server Exception when the response code is 404 or other',
+        () async {
+      // arrange
+      when(mockHttpClient.get(Uri.parse('$BASE_URL/surah/$tId'))).thenAnswer(
+          (_) async => http.Response(
+                  readJson('dummy_data/detail_surah.json'), 404, headers: {
+                HttpHeaders.contentTypeHeader: "application/json; charset=utf-8"
+              }));
+      // act
+      final call = dataSource.getDetailSurah(tId);
+      // assert
+      expect(() => call, throwsA(isA<ServerException>()));
+    });
   });
 }
