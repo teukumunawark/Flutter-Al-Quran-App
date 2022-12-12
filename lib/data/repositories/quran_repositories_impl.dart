@@ -5,9 +5,7 @@ import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_sour
 import 'package:dartz/dartz.dart';
 
 import 'package:al_quran_app/domain/entities/quran_entities.dart';
-
 import 'package:al_quran_app/common/failure.dart';
-
 import '../../domain/repositories/quran_repository.dart';
 
 class QuranRepositoryImpl implements QuranRepository {

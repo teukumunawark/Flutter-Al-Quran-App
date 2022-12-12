@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:al_quran_app/common/exception.dart';
 import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_source.dart';
+import 'package:al_quran_app/data/models/detail_surah/detail_surah.dart';
 import 'package:al_quran_app/data/models/quran_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -55,5 +56,27 @@ void main() {
       // assert
       expect(() => call, throwsA(isA<ServerException>()));
     });
+  });
+
+  group("get detail surah", () {
+    const int tId = 110;
+
+    final tDetailSurahModel = DetailSurah.fromJson(
+      json.decode(readJson('dummy_data/detail_surah.json')),
+    );
+
+    test(
+      'should return detail surah when the response code is 200',
+      () async {
+        // arrange
+        when(mockHttpClient.get(Uri.parse('$BASE_URL/surah/$tId'))).thenAnswer(
+            (_) async =>
+                http.Response(readJson('dummy_data/detail_surah.json'), 200));
+        // act
+        final result = await dataSource.getDetailSurah(tId);
+        // assert
+        expect(result, equals(tDetailSurahModel));
+      },
+    );
   });
 }

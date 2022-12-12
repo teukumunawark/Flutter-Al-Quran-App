@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class AudioDetail extends Equatable {
-  final String primary;
-  final List<String> secondary;
+class Audio extends Equatable {
+  final String? primary;
+  final List<String>? secondary;
 
-  const AudioDetail({required this.primary, required this.secondary});
+  const Audio({this.primary, this.secondary});
 
-  factory AudioDetail.fromJson(Map<String, dynamic> json) => AudioDetail(
+  factory Audio.fromJson(Map<String, dynamic> json) => Audio(
         primary: json['primary'],
         secondary: List<String>.from(json['secondary'].map((e) => e)),
       );
@@ -15,6 +15,9 @@ class AudioDetail extends Equatable {
         'primary': primary,
         'secondary': secondary,
       };
+
+  @override
+  bool get stringify => true;
 
   @override
   List<Object?> get props => [primary, secondary];
