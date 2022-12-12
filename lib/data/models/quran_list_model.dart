@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../domain/entities/quran_entities.dart';
+import '../../domain/entities/surah_list_entities.dart';
 
 class QuranModel extends Equatable {
   final int number;

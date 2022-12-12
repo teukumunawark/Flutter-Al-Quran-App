@@ -39,5 +39,10 @@ class Name extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object?> get props => [short, long, transliteration, translation];
+  List<Object?> get props => [
+        short,
+        long,
+        transliteration,
+        translation,
+      ];
 }

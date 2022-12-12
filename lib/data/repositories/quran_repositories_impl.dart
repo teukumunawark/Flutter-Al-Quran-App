@@ -4,7 +4,7 @@ import 'package:al_quran_app/common/exception.dart';
 import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_source.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:al_quran_app/domain/entities/quran_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart';
 import 'package:al_quran_app/common/failure.dart';
 import '../../domain/repositories/quran_repository.dart';
 

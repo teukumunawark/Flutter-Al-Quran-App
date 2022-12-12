@@ -6,7 +6,7 @@
 import 'dart:async' as _i5;
 
 import 'package:al_quran_app/common/failure.dart' as _i6;
-import 'package:al_quran_app/domain/entities/quran_entities.dart' as _i7;
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart' as _i7;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i2;
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart' as _i4;
 import 'package:dartz/dartz.dart' as _i3;

@@ -1,4 +1,4 @@
-import 'package:al_quran_app/domain/entities/quran_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -4,7 +4,7 @@ import 'package:al_quran_app/common/exception.dart';
 import 'package:al_quran_app/common/failure.dart';
 import 'package:al_quran_app/data/models/quran_list_model.dart';
 import 'package:al_quran_app/data/repositories/quran_repositories_impl.dart';
-import 'package:al_quran_app/domain/entities/quran_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

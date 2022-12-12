@@ -1,5 +1,5 @@
 import 'package:al_quran_app/data/models/quran_list_model.dart';
-import 'package:al_quran_app/domain/entities/quran_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

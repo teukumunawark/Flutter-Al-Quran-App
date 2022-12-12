@@ -1,4 +1,4 @@
-import 'package:al_quran_app/domain/entities/quran_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart';
 
 const testQuran = QuranEntities(
   number: 1,

@@ -12,7 +12,7 @@ import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_sour
     as _i9;
 import 'package:al_quran_app/data/models/detail_surah/detail_surah.dart' as _i3;
 import 'package:al_quran_app/data/models/quran_list_model.dart' as _i10;
-import 'package:al_quran_app/domain/entities/quran_entities.dart' as _i8;
+import 'package:al_quran_app/domain/entities/surah_list_entities.dart' as _i8;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i5;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:http/http.dart' as _i4;
