@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../domain/entities/surah_list_entities.dart';
 
-class QuranModel extends Equatable {
+class SurahModel extends Equatable {
   final int number;
   final int sequence;
   final int numberOfVerses;
@@ -10,7 +10,7 @@ class QuranModel extends Equatable {
   final Revelation revelation;
   final Tafsir tafsir;
 
-  const QuranModel({
+  const SurahModel({
     required this.number,
     required this.sequence,
     required this.numberOfVerses,
@@ -19,7 +19,7 @@ class QuranModel extends Equatable {
     required this.tafsir,
   });
 
-  factory QuranModel.fromJson(Map<String, dynamic> json) => QuranModel(
+  factory SurahModel.fromJson(Map<String, dynamic> json) => SurahModel(
         number: json['number'],
         sequence: json['sequence'],
         numberOfVerses: json['numberOfVerses'],

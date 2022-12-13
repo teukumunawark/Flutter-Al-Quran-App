@@ -107,14 +107,14 @@ class MockQuranRemoteDataSource extends _i1.Mock
   }
 
   @override
-  _i6.Future<List<_i10.QuranModel>> getListQuran() => (super.noSuchMethod(
+  _i6.Future<List<_i10.SurahModel>> getListQuran() => (super.noSuchMethod(
         Invocation.method(
           #getListQuran,
           [],
         ),
         returnValue:
-            _i6.Future<List<_i10.QuranModel>>.value(<_i10.QuranModel>[]),
-      ) as _i6.Future<List<_i10.QuranModel>>);
+            _i6.Future<List<_i10.SurahModel>>.value(<_i10.SurahModel>[]),
+      ) as _i6.Future<List<_i10.SurahModel>>);
   @override
   _i6.Future<_i3.DetailSurah> getDetailSurah(int? id) => (super.noSuchMethod(
         Invocation.method(

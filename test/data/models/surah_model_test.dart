@@ -29,7 +29,7 @@ void main() {
     ),
   );
 
-  const tSurahModel = QuranModel(
+  const tSurahModel = SurahModel(
     number: 1,
     sequence: 5,
     numberOfVerses: 7,

@@ -27,7 +27,9 @@ class Meta extends Equatable {
         hizbQuarter: json['hizbQuarter'] as int?,
         sajda: json['sajda'] == null
             ? null
-            : Sajda.fromJson(json['sajda'] as Map<String, dynamic>),
+            : Sajda.fromJson(
+                json['sajda'] as Map<String, dynamic>,
+              ),
       );
 
   Map<String, dynamic> toJson() => {

@@ -48,7 +48,7 @@ void main() {
     ),
   );
 
-  const tSurahModel = QuranModel(
+  const tSurahModel = SurahModel(
     number: 1,
     sequence: 5,
     numberOfVerses: 7,
@@ -75,7 +75,7 @@ void main() {
   );
 
   final tSurahEntityList = <QuranEntities>[tSurahEntities];
-  final tSurahModelList = <QuranModel>[tSurahModel];
+  final tSurahModelList = <SurahModel>[tSurahModel];
 
   group("Surah List", () {
     test(

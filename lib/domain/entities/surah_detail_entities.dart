@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class SurahDetailEntities extends Equatable {
+class DetailSurahEntities extends Equatable {
   final int? number;
   final int? sequence;
   final int? numberOfVerses;
@@ -10,7 +10,7 @@ class SurahDetailEntities extends Equatable {
   final PreBismillahEntities? preBismillah;
   final List<VerseEntities>? verses;
 
-  const SurahDetailEntities({
+  const DetailSurahEntities({
     this.number,
     this.sequence,
     this.numberOfVerses,
@@ -98,8 +98,18 @@ class RevelationEntities extends Equatable {
       ];
 }
 
+class IdEntities extends Equatable {
+  final String? short;
+  final String? long;
+
+  const IdEntities({this.short, this.long});
+
+  @override
+  List<Object?> get props => [short, long];
+}
+
 class TafsirEntities extends Equatable {
-  final String? id;
+  final IdEntities? id;
 
   const TafsirEntities({this.id});
 
@@ -134,7 +144,7 @@ class AudioEntities extends Equatable {
 
 class TextEntities extends Equatable {
   final String? arab;
-  final TranslationEntities? transliteration;
+  final TransliterationEntities? transliteration;
 
   const TextEntities({this.arab, this.transliteration});
 
@@ -171,13 +181,13 @@ class VerseEntities extends Equatable {
 }
 
 class NumberEntities extends Equatable {
-  final String? en;
-  final String? id;
+  final int? inQuran;
+  final int? inSurah;
 
-  const NumberEntities({this.en, this.id});
+  const NumberEntities({this.inQuran, this.inSurah});
 
   @override
-  List<Object?> get props => [en, id];
+  List<Object?> get props => [inQuran, inSurah];
 }
 
 class MetaEntities extends Equatable {

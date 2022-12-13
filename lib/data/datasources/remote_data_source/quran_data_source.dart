@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import '../../models/detail_surah/detail_surah.dart';
 
 abstract class QuranRemoteDataSource {
-  Future<List<QuranModel>> getListQuran();
+  Future<List<SurahModel>> getListQuran();
   Future<DetailSurah> getDetailSurah(int id);
 }
 
@@ -20,7 +20,7 @@ class QuranRemoteDataSourceImpl implements QuranRemoteDataSource {
   QuranRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<List<QuranModel>> getListQuran() async {
+  Future<List<SurahModel>> getListQuran() async {
     final response = await client.get(Uri.parse('$BASE_URL/surah'));
     if (response.statusCode == 200) {
       return QuranResponse.fromJson(json.decode(response.body)).quranList;
