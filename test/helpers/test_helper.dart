@@ -4,8 +4,8 @@ import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
 
 @GenerateMocks([
-  QuranRepository,
-  QuranRemoteDataSource,
+  SurahRepository,
+  SurahRemoteDataSource,
 ], customMocks: [
   MockSpec<http.Client>(as: #MockHttpClient)
 ])

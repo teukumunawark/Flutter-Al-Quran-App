@@ -1,12 +1,12 @@
 import 'package:al_quran_app/data/models/detail_surah/id.dart';
 import 'package:equatable/equatable.dart';
 
-class Tafsir extends Equatable {
+class TafsirID extends Equatable {
   final Id? id;
 
-  const Tafsir({this.id});
+  const TafsirID({this.id});
 
-  factory Tafsir.fromJson(Map<String, dynamic> json) => Tafsir(
+  factory TafsirID.fromJson(Map<String, dynamic> json) => TafsirID(
         id: json['id'] == null
             ? null
             : Id.fromJson(json['id'] as Map<String, dynamic>),

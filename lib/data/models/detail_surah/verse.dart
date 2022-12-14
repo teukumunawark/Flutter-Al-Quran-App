@@ -13,7 +13,7 @@ class Verse extends Equatable {
   final Text? text;
   final Translation? translation;
   final Audio? audio;
-  final Tafsir? tafsir;
+  final TafsirID? tafsir;
 
   const Verse({
     this.number,
@@ -42,7 +42,7 @@ class Verse extends Equatable {
             : Audio.fromJson(json['audio'] as Map<String, dynamic>),
         tafsir: json['tafsir'] == null
             ? null
-            : Tafsir.fromJson(json['tafsir'] as Map<String, dynamic>),
+            : TafsirID.fromJson(json['tafsir'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {

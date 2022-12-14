@@ -14,12 +14,12 @@ import '../../json_reader.dart';
 void main() {
   const BASE_URL = 'https://api.quran.gading.dev';
 
-  late QuranRemoteDataSourceImpl dataSource;
+  late SurahRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
 
   setUp(() {
     mockHttpClient = MockHttpClient();
-    dataSource = QuranRemoteDataSourceImpl(client: mockHttpClient);
+    dataSource = SurahRemoteDataSourceImpl(client: mockHttpClient);
   });
 
   group("Get List Surah", () {
@@ -40,7 +40,7 @@ void main() {
         ),
       );
       // act
-      final result = await dataSource.getListQuran();
+      final result = await dataSource.getListSurah();
       // assert
       expect(result, equals(tSurahList));
     });
@@ -52,7 +52,7 @@ void main() {
       when(mockHttpClient.get(Uri.parse('$BASE_URL/surah')))
           .thenAnswer((_) async => http.Response("Not Found", 404));
       // act
-      final call = dataSource.getListQuran();
+      final call = dataSource.getListSurah();
       // assert
       expect(() => call, throwsA(isA<ServerException>()));
     });
