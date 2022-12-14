@@ -1,10 +1,10 @@
+import 'package:al_quran_app/data/models/list_surah_models/translation_model.dart';
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
-
-import 'transliteration.dart';
 
 class Text extends Equatable {
   final String? arab;
-  final Transliteration? transliteration;
+  final TranslationModel? transliteration;
 
   const Text({this.arab, this.transliteration});
 
@@ -12,7 +12,7 @@ class Text extends Equatable {
         arab: json['arab'] as String?,
         transliteration: json['transliteration'] == null
             ? null
-            : Transliteration.fromJson(
+            : TranslationModel.fromJson(
                 json['transliteration'] as Map<String, dynamic>),
       );
 
@@ -20,6 +20,11 @@ class Text extends Equatable {
         'arab': arab,
         'transliteration': transliteration?.toJson(),
       };
+
+  TextEntities toEntity() => TextEntities(
+        arab: arab,
+        transliteration: transliteration?.toEntity() as TransliterationEntities,
+      );
 
   @override
   bool get stringify => true;

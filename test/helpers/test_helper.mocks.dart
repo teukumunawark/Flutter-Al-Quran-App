@@ -8,8 +8,7 @@ import 'dart:convert' as _i11;
 import 'dart:typed_data' as _i12;
 
 import 'package:al_quran_app/common/failure.dart' as _i7;
-import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_source.dart'
-    as _i9;
+import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i9;
 import 'package:al_quran_app/data/models/detail_surah/detail_surah.dart' as _i3;
 import 'package:al_quran_app/data/models/quran_list_model.dart' as _i10;
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'

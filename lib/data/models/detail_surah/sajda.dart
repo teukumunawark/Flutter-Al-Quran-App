@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class Sajda extends Equatable {
@@ -15,6 +16,11 @@ class Sajda extends Equatable {
         'recommended': recommended,
         'obligatory': obligatory,
       };
+
+  SajdaEntities toEntity() => SajdaEntities(
+        recommended: recommended,
+        obligatory: obligatory,
+      );
 
   @override
   bool get stringify => true;

@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class Revelation extends Equatable {
@@ -18,6 +19,12 @@ class Revelation extends Equatable {
         'en': en,
         'id': id,
       };
+
+  RevelationEntities toEntity() => RevelationEntities(
+        arab: arab,
+        en: en,
+        id: id,
+      );
 
   @override
   bool get stringify => true;

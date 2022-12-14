@@ -6,7 +6,7 @@ class DetailSurahEntities extends Equatable {
   final int? numberOfVerses;
   final NameEntities? name;
   final RevelationEntities? revelation;
-  final TafsirEntities? tafsir;
+  final TafsirIDEntities? tafsir;
   final PreBismillahEntities? preBismillah;
   final List<VerseEntities>? verses;
 
@@ -108,10 +108,10 @@ class IdEntities extends Equatable {
   List<Object?> get props => [short, long];
 }
 
-class TafsirEntities extends Equatable {
+class TafsirIDEntities extends Equatable {
   final IdEntities? id;
 
-  const TafsirEntities({this.id});
+  const TafsirIDEntities({this.id});
 
   @override
   List<Object?> get props => [id];
@@ -158,7 +158,7 @@ class VerseEntities extends Equatable {
   final TextEntities? text;
   final TranslationEntities? translation;
   final AudioEntities? audio;
-  final TafsirEntities? tafsir;
+  final TafsirIDEntities? tafsir;
 
   const VerseEntities({
     this.number,

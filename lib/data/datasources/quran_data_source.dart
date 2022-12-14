@@ -5,7 +5,7 @@ import 'package:al_quran_app/data/models/quran_list_model.dart';
 import 'package:al_quran_app/data/models/quran_response.dart';
 import 'package:http/http.dart' as http;
 
-import '../../models/detail_surah/detail_surah.dart';
+import '../models/detail_surah/detail_surah.dart';
 
 abstract class SurahRemoteDataSource {
   Future<List<SurahModel>> getListSurah();

@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 import 'sajda.dart';
@@ -40,6 +41,15 @@ class Meta extends Equatable {
         'hizbQuarter': hizbQuarter,
         'sajda': sajda?.toJson(),
       };
+
+  MetaEntities toEntity() => MetaEntities(
+        juz: juz,
+        page: page,
+        manzil: manzil,
+        ruku: ruku,
+        hizbQuarter: hizbQuarter,
+        sajda: sajda?.toEntity() as SajdaEntities,
+      );
 
   @override
   bool get stringify => true;
