@@ -5,7 +5,7 @@ import '../../common/exception.dart';
 import '../../common/failure.dart';
 import '../../domain/entities/list_surah_entities/surah_entities.dart';
 import '../../domain/repositories/quran_repository.dart';
-import '../datasources/remote_data_source/quran_data_source.dart';
+import '../datasources/quran_data_source.dart';
 
 class SurahRepositoryImpl implements SurahRepository {
   final SurahRemoteDataSource remoteDataSource;

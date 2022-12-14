@@ -1,4 +1,5 @@
 import 'package:al_quran_app/data/models/detail_surah/id.dart';
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class TafsirID extends Equatable {
@@ -15,6 +16,10 @@ class TafsirID extends Equatable {
   Map<String, dynamic> toJson() => {
         'id': id,
       };
+
+  TafsirIDEntities toEntity() => TafsirIDEntities(
+        id: id?.toEntity() as IdEntities,
+      );
 
   @override
   bool get stringify => true;

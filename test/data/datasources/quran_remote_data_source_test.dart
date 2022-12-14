@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:al_quran_app/common/exception.dart';
-import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_source.dart';
+import 'package:al_quran_app/data/datasources/quran_data_source.dart';
 import 'package:al_quran_app/data/models/detail_surah/detail_surah.dart';
 import 'package:al_quran_app/data/models/quran_response.dart';
 import 'package:flutter_test/flutter_test.dart';

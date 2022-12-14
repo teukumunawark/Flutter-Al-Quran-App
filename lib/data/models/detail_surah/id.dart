@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class Id extends Equatable {
@@ -15,6 +16,11 @@ class Id extends Equatable {
         'short': short,
         'long': long,
       };
+
+  IdEntities toEntity() => IdEntities(
+        long: long,
+        short: short,
+      );
 
   @override
   bool get stringify => true;

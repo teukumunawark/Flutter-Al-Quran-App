@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class Number extends Equatable {
@@ -15,6 +16,11 @@ class Number extends Equatable {
         'inQuran': inQuran,
         'inSurah': inSurah,
       };
+
+  NumberEntities toEntity() => NumberEntities(
+        inQuran: inQuran,
+        inSurah: inSurah,
+      );
 
   @override
   bool get stringify => true;

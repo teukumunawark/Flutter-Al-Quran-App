@@ -1,17 +1,18 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
+import '../list_surah_models/translation_model.dart';
 import 'audio.dart';
 import 'meta.dart';
 import 'number.dart';
 import 'tafsir.dart';
 import 'text.dart';
-import 'translation.dart';
 
 class Verse extends Equatable {
   final Number? number;
   final Meta? meta;
   final Text? text;
-  final Translation? translation;
+  final TranslationModel? translation;
   final Audio? audio;
   final TafsirID? tafsir;
 
@@ -36,7 +37,8 @@ class Verse extends Equatable {
             : Text.fromJson(json['text'] as Map<String, dynamic>),
         translation: json['translation'] == null
             ? null
-            : Translation.fromJson(json['translation'] as Map<String, dynamic>),
+            : TranslationModel.fromJson(
+                json['translation'] as Map<String, dynamic>),
         audio: json['audio'] == null
             ? null
             : Audio.fromJson(json['audio'] as Map<String, dynamic>),
@@ -53,6 +55,15 @@ class Verse extends Equatable {
         'audio': audio?.toJson(),
         'tafsir': tafsir?.toJson(),
       };
+
+  VerseEntities toEntity() => VerseEntities(
+        audio: audio?.toEntity() as AudioEntities,
+        meta: meta?.toEntity() as MetaEntities,
+        text: text?.toEntity() as TextEntities,
+        translation: translation?.toEntity() as TranslationEntities,
+        tafsir: tafsir?.toEntity() as TafsirIDEntities,
+        number: number?.toEntity() as NumberEntities,
+      );
 
   @override
   bool get stringify => true;

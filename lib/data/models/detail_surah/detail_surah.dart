@@ -1,8 +1,9 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
-import 'name.dart';
+import '../list_surah_models/name_model.dart';
+import '../list_surah_models/revalation_model.dart';
 import 'pre_bismillah.dart';
-import 'revelation.dart';
 import 'tafsir.dart';
 import 'verse.dart';
 
@@ -10,17 +11,17 @@ class DetailSurah extends Equatable {
   final int? number;
   final int? sequence;
   final int? numberOfVerses;
-  final Name? name;
-  final Revelation? revelation;
+  final NameModel? name;
+  final RevelationModel? revelation;
   final TafsirID? tafsir;
   final PreBismillah? preBismillah;
   final List<Verse>? verses;
 
   const DetailSurah({
+    required this.name,
     this.number,
     this.sequence,
     this.numberOfVerses,
-    this.name,
     this.revelation,
     this.tafsir,
     this.preBismillah,
@@ -33,10 +34,11 @@ class DetailSurah extends Equatable {
         numberOfVerses: json['numberOfVerses'] as int?,
         name: json['name'] == null
             ? null
-            : Name.fromJson(json['name'] as Map<String, dynamic>),
+            : NameModel.fromJson(json['name'] as Map<String, dynamic>),
         revelation: json['revelation'] == null
             ? null
-            : Revelation.fromJson(json['revelation'] as Map<String, dynamic>),
+            : RevelationModel.fromJson(
+                json['revelation'] as Map<String, dynamic>),
         tafsir: json['tafsir'] == null
             ? null
             : TafsirID.fromJson(json['tafsir'] as Map<String, dynamic>),
@@ -59,6 +61,13 @@ class DetailSurah extends Equatable {
         'preBismillah': preBismillah?.toJson(),
         'verses': verses?.map((e) => e.toJson()).toList(),
       };
+
+  DetailSurahEntities toEntity() => DetailSurahEntities(
+        number: number,
+        name: name?.toEntity() as NameEntities,
+        revelation: revelation?.toEntity() as RevelationEntities,
+        tafsir: tafsir?.toEntity() as TafsirIDEntities,
+      );
 
   @override
   bool get stringify => true;

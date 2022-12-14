@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class Audio extends Equatable {
@@ -15,6 +16,11 @@ class Audio extends Equatable {
         'primary': primary,
         'secondary': secondary,
       };
+
+  AudioEntities toEntity() => AudioEntities(
+        primary: primary,
+        secondary: secondary,
+      );
 
   @override
   bool get stringify => true;

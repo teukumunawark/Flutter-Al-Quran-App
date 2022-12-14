@@ -1,12 +1,13 @@
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
+import '../list_surah_models/translation_model.dart';
 import 'audio.dart';
 import 'text.dart';
-import 'translation.dart';
 
 class PreBismillah extends Equatable {
   final Text? text;
-  final Translation? translation;
+  final TranslationModel? translation;
   final Audio? audio;
 
   const PreBismillah({this.text, this.translation, this.audio});
@@ -17,7 +18,8 @@ class PreBismillah extends Equatable {
             : Text.fromJson(json['text'] as Map<String, dynamic>),
         translation: json['translation'] == null
             ? null
-            : Translation.fromJson(json['translation'] as Map<String, dynamic>),
+            : TranslationModel.fromJson(
+                json['translation'] as Map<String, dynamic>),
         audio: json['audio'] == null
             ? null
             : Audio.fromJson(json['audio'] as Map<String, dynamic>),
@@ -28,6 +30,12 @@ class PreBismillah extends Equatable {
         'translation': translation?.toJson(),
         'audio': audio?.toJson(),
       };
+
+  PreBismillahEntities toEntity() => PreBismillahEntities(
+        text: text?.toEntity() as TextEntities,
+        translation: translation?.toEntity() as TranslationEntities,
+        audio: audio?.toEntity() as AudioEntities,
+      );
 
   @override
   bool get stringify => true;
