@@ -6,7 +6,8 @@
 import 'dart:async' as _i5;
 
 import 'package:al_quran_app/common/failure.dart' as _i6;
-import 'package:al_quran_app/domain/entities/surah_list_entities.dart' as _i7;
+import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
+    as _i7;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i2;
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart' as _i4;
 import 'package:dartz/dartz.dart' as _i3;
@@ -23,9 +24,9 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeQuranRepository_0 extends _i1.SmartFake
-    implements _i2.QuranRepository {
-  _FakeQuranRepository_0(
+class _FakeSurahRepository_0 extends _i1.SmartFake
+    implements _i2.SurahRepository {
+  _FakeSurahRepository_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -53,28 +54,28 @@ class MockGetSurahList extends _i1.Mock implements _i4.GetSurahList {
   }
 
   @override
-  _i2.QuranRepository get repository => (super.noSuchMethod(
+  _i2.SurahRepository get repository => (super.noSuchMethod(
         Invocation.getter(#repository),
-        returnValue: _FakeQuranRepository_0(
+        returnValue: _FakeSurahRepository_0(
           this,
           Invocation.getter(#repository),
         ),
-      ) as _i2.QuranRepository);
+      ) as _i2.SurahRepository);
   @override
-  _i5.Future<_i3.Either<_i6.Failure, List<_i7.QuranEntities>>> execute() =>
+  _i5.Future<_i3.Either<_i6.Failure, List<_i7.SurahEntities>>> execute() =>
       (super.noSuchMethod(
         Invocation.method(
           #execute,
           [],
         ),
         returnValue:
-            _i5.Future<_i3.Either<_i6.Failure, List<_i7.QuranEntities>>>.value(
-                _FakeEither_1<_i6.Failure, List<_i7.QuranEntities>>(
+            _i5.Future<_i3.Either<_i6.Failure, List<_i7.SurahEntities>>>.value(
+                _FakeEither_1<_i6.Failure, List<_i7.SurahEntities>>(
           this,
           Invocation.method(
             #execute,
             [],
           ),
         )),
-      ) as _i5.Future<_i3.Either<_i6.Failure, List<_i7.QuranEntities>>>);
+      ) as _i5.Future<_i3.Either<_i6.Failure, List<_i7.SurahEntities>>>);
 }

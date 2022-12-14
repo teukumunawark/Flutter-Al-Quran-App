@@ -1,6 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-import '../../domain/entities/surah_list_entities.dart';
+import '../../domain/entities/list_surah_entities/name_entities.dart';
+import '../../domain/entities/list_surah_entities/revelation_entities.dart';
+import '../../domain/entities/list_surah_entities/surah_entities.dart';
+import '../../domain/entities/list_surah_entities/tafsir_id_entities.dart';
+import '../../domain/entities/list_surah_entities/translation_entities.dart';
 
 class SurahModel extends Equatable {
   final int number;
@@ -38,7 +42,7 @@ class SurahModel extends Equatable {
         'tafsir': tafsir.toJson(),
       };
 
-  QuranEntities toEntity() => QuranEntities(
+  SurahEntities toEntity() => SurahEntities(
         number: number,
         sequence: sequence,
         numberOfVerses: numberOfVerses,
@@ -149,7 +153,7 @@ class Tafsir extends Equatable {
         'id': id,
       };
 
-  TafsirEntities toEntity() => TafsirEntities(id: id);
+  TafsirIDEntities toEntity() => TafsirIDEntities(id: id);
 
   @override
   List<Object?> get props => [id];

@@ -12,7 +12,7 @@ class DetailSurah extends Equatable {
   final int? numberOfVerses;
   final Name? name;
   final Revelation? revelation;
-  final Tafsir? tafsir;
+  final TafsirID? tafsir;
   final PreBismillah? preBismillah;
   final List<Verse>? verses;
 
@@ -39,7 +39,7 @@ class DetailSurah extends Equatable {
             : Revelation.fromJson(json['revelation'] as Map<String, dynamic>),
         tafsir: json['tafsir'] == null
             ? null
-            : Tafsir.fromJson(json['tafsir'] as Map<String, dynamic>),
+            : TafsirID.fromJson(json['tafsir'] as Map<String, dynamic>),
         preBismillah: json['preBismillah'] == null
             ? null
             : PreBismillah.fromJson(

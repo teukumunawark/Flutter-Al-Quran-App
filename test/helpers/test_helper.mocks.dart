@@ -12,7 +12,8 @@ import 'package:al_quran_app/data/datasources/remote_data_source/quran_data_sour
     as _i9;
 import 'package:al_quran_app/data/models/detail_surah/detail_surah.dart' as _i3;
 import 'package:al_quran_app/data/models/quran_list_model.dart' as _i10;
-import 'package:al_quran_app/domain/entities/surah_list_entities.dart' as _i8;
+import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
+    as _i8;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i5;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:http/http.dart' as _i4;
@@ -70,46 +71,46 @@ class _FakeStreamedResponse_3 extends _i1.SmartFake
         );
 }
 
-/// A class which mocks [QuranRepository].
+/// A class which mocks [SurahRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockQuranRepository extends _i1.Mock implements _i5.QuranRepository {
-  MockQuranRepository() {
+class MockSurahRepository extends _i1.Mock implements _i5.SurahRepository {
+  MockSurahRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, List<_i8.QuranEntities>>> getListQuran() =>
+  _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>> getListSurah() =>
       (super.noSuchMethod(
         Invocation.method(
-          #getListQuran,
+          #getListSurah,
           [],
         ),
         returnValue:
-            _i6.Future<_i2.Either<_i7.Failure, List<_i8.QuranEntities>>>.value(
-                _FakeEither_0<_i7.Failure, List<_i8.QuranEntities>>(
+            _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>>.value(
+                _FakeEither_0<_i7.Failure, List<_i8.SurahEntities>>(
           this,
           Invocation.method(
-            #getListQuran,
+            #getListSurah,
             [],
           ),
         )),
-      ) as _i6.Future<_i2.Either<_i7.Failure, List<_i8.QuranEntities>>>);
+      ) as _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>>);
 }
 
-/// A class which mocks [QuranRemoteDataSource].
+/// A class which mocks [SurahRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockQuranRemoteDataSource extends _i1.Mock
-    implements _i9.QuranRemoteDataSource {
-  MockQuranRemoteDataSource() {
+class MockSurahRemoteDataSource extends _i1.Mock
+    implements _i9.SurahRemoteDataSource {
+  MockSurahRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<List<_i10.SurahModel>> getListQuran() => (super.noSuchMethod(
+  _i6.Future<List<_i10.SurahModel>> getListSurah() => (super.noSuchMethod(
         Invocation.method(
-          #getListQuran,
+          #getListSurah,
           [],
         ),
         returnValue:

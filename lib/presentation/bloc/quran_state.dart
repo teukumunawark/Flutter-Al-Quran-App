@@ -21,7 +21,7 @@ class QuranError extends QuranState {
 }
 
 class QuranHasData extends QuranState {
-  final List<QuranEntities> listQuran;
+  final List<SurahEntities> listQuran;
 
   const QuranHasData(this.listQuran);
 
