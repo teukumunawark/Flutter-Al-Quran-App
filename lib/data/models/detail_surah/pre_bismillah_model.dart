@@ -2,8 +2,8 @@ import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 import '../list_surah_models/translation_model.dart';
-import 'audio.dart';
-import 'text.dart';
+import 'audio_model.dart';
+import 'text_model.dart';
 
 class PreBismillah extends Equatable {
   final Text? text;

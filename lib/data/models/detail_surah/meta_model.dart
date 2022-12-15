@@ -1,7 +1,7 @@
 import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
-import 'sajda.dart';
+import 'sajda_nodel.dart';
 
 class Meta extends Equatable {
   final int? juz;
