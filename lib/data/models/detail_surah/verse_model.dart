@@ -2,13 +2,13 @@ import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 import '../list_surah_models/translation_model.dart';
-import 'audio.dart';
-import 'meta.dart';
-import 'number.dart';
-import 'tafsir.dart';
-import 'text.dart';
+import 'audio_model.dart';
+import 'meta_model.dart';
+import 'number_model.dart';
+import 'tafsir_model.dart';
+import 'text_model.dart';
 
-class Verse extends Equatable {
+class VerseModel extends Equatable {
   final Number? number;
   final Meta? meta;
   final Text? text;
@@ -16,7 +16,7 @@ class Verse extends Equatable {
   final Audio? audio;
   final TafsirID? tafsir;
 
-  const Verse({
+  const VerseModel({
     this.number,
     this.meta,
     this.text,
@@ -25,7 +25,7 @@ class Verse extends Equatable {
     this.tafsir,
   });
 
-  factory Verse.fromJson(Map<String, dynamic> json) => Verse(
+  factory VerseModel.fromJson(Map<String, dynamic> json) => VerseModel(
         number: json['number'] == null
             ? null
             : Number.fromJson(json['number'] as Map<String, dynamic>),

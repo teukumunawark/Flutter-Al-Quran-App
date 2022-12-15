@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:al_quran_app/common/exception.dart';
-import 'package:al_quran_app/data/models/quran_list_model.dart';
 import 'package:al_quran_app/data/models/quran_response.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/detail_surah/detail_surah.dart';
+import '../models/detail_surah/detail_surah_model.dart';
+import '../models/list_surah_models/surah_model.dart';
 
 abstract class SurahRemoteDataSource {
   Future<List<SurahModel>> getListSurah();
