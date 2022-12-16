@@ -11,7 +11,7 @@ import 'text_model.dart';
 class VerseModel extends Equatable {
   final Number? number;
   final Meta? meta;
-  final Text? text;
+  final TextModel? text;
   final TranslationModel? translation;
   final Audio? audio;
   final TafsirID? tafsir;
@@ -34,7 +34,7 @@ class VerseModel extends Equatable {
             : Meta.fromJson(json['meta'] as Map<String, dynamic>),
         text: json['text'] == null
             ? null
-            : Text.fromJson(json['text'] as Map<String, dynamic>),
+            : TextModel.fromJson(json['text'] as Map<String, dynamic>),
         translation: json['translation'] == null
             ? null
             : TranslationModel.fromJson(
