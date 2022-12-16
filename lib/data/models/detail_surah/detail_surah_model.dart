@@ -1,10 +1,10 @@
+import 'package:al_quran_app/data/models/list_surah_models/tafsir_model.dart';
 import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
 import '../list_surah_models/name_model.dart';
 import '../list_surah_models/revalation_model.dart';
 import 'pre_bismillah_model.dart';
-import 'tafsir_model.dart';
 import 'verse_model.dart';
 
 class DetailSurah extends Equatable {
@@ -13,8 +13,8 @@ class DetailSurah extends Equatable {
   final int? numberOfVerses;
   final NameModel? name;
   final RevelationModel? revelation;
-  final TafsirID? tafsir;
-  final PreBismillah? preBismillah;
+  final TafsirModel? tafsir;
+  final PreBismillahModel? preBismillah;
   final List<VerseModel>? verses;
 
   const DetailSurah({
@@ -41,10 +41,10 @@ class DetailSurah extends Equatable {
                 json['revelation'] as Map<String, dynamic>),
         tafsir: json['tafsir'] == null
             ? null
-            : TafsirID.fromJson(json['tafsir'] as Map<String, dynamic>),
+            : TafsirModel.fromJson(json['tafsir'] as Map<String, dynamic>),
         preBismillah: json['preBismillah'] == null
             ? null
-            : PreBismillah.fromJson(
+            : PreBismillahModel.fromJson(
                 json['preBismillah'] as Map<String, dynamic>),
         verses: (json['verses'] as List<dynamic>?)
             ?.map((e) => VerseModel.fromJson(e as Map<String, dynamic>))

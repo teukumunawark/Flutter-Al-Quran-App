@@ -2,13 +2,13 @@ import 'package:al_quran_app/data/models/list_surah_models/translation_model.dar
 import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
-class Text extends Equatable {
+class TextModel extends Equatable {
   final String? arab;
   final TranslationModel? transliteration;
 
-  const Text({this.arab, this.transliteration});
+  const TextModel({this.arab, this.transliteration});
 
-  factory Text.fromJson(Map<String, dynamic> json) => Text(
+  factory TextModel.fromJson(Map<String, dynamic> json) => TextModel(
         arab: json['arab'] as String?,
         transliteration: json['transliteration'] == null
             ? null
