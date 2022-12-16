@@ -77,7 +77,7 @@ void main() {
             "https://cdn.islamic.network/quran/audio/64/ar.alafasy/1.mp3",
           ],
         ),
-        tafsir: TafsirEntities(
+        tafsir: TafsirIDEntities(
           id: IdEntities(
             short:
                 "Wahai Nabi Muhammad, apabila telah datang pertolongan Allah kepadamu dan pengikutmu dalam menghadapi kaum kafir Quraisy, dan telah datang pula kemenangan kepadamu dengan penaklukan Mekah menjadi kota yang suci kembali dari kesyirikan dan kekafiran,",
