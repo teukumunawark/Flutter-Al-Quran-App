@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../common/exception.dart';
@@ -19,6 +20,18 @@ class SurahRepositoryImpl implements SurahRepository {
     try {
       final result = await remoteDataSource.getListSurah();
       return Right(result.map((model) => model.toEntity()).toList());
+    } on ServerException {
+      return Left(ServerFailure(''));
+    } on SocketException {
+      return Left(ConnectionFailure('Failed to connect to the network'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, DetailSurahEntities>> getDetailSurah(int id) async {
+    try {
+      final result = await remoteDataSource.getDetailSurah(id);
+      return Right(result.toEntity());
     } on ServerException {
       return Left(ServerFailure(''));
     } on SocketException {

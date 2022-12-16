@@ -5,4 +5,5 @@ import '../entities/list_surah_entities/surah_entities.dart';
 
 abstract class SurahRepository {
   Future<Either<Failure, List<SurahEntities>>> getListSurah();
+  // Future<Either<Failure, DetailSurahEntities>> getDetailSurah();
 }
