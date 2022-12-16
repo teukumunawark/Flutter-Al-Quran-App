@@ -5,17 +5,18 @@ import '../list_surah_models/translation_model.dart';
 import 'audio_model.dart';
 import 'text_model.dart';
 
-class PreBismillah extends Equatable {
-  final Text? text;
+class PreBismillahModel extends Equatable {
+  final TextModel? text;
   final TranslationModel? translation;
   final Audio? audio;
 
-  const PreBismillah({this.text, this.translation, this.audio});
+  const PreBismillahModel({this.text, this.translation, this.audio});
 
-  factory PreBismillah.fromJson(Map<String, dynamic> json) => PreBismillah(
+  factory PreBismillahModel.fromJson(Map<String, dynamic> json) =>
+      PreBismillahModel(
         text: json['text'] == null
             ? null
-            : Text.fromJson(json['text'] as Map<String, dynamic>),
+            : TextModel.fromJson(json['text'] as Map<String, dynamic>),
         translation: json['translation'] == null
             ? null
             : TranslationModel.fromJson(
