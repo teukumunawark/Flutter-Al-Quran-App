@@ -10,7 +10,7 @@ class SurahEntities extends Equatable {
   final int numberOfVerses;
   final NameEntities name;
   final RevelationEntities revelation;
-  final TafsirIDEntities tafsir;
+  final TafsirEntities tafsir;
 
   const SurahEntities({
     required this.number,

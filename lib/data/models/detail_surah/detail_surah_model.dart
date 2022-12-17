@@ -1,7 +1,10 @@
 import 'package:al_quran_app/data/models/list_surah_models/tafsir_model.dart';
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../domain/entities/detail_surah_entities/detail_surah_entities.dart';
+import '../../../domain/entities/list_surah_entities/name_entities.dart';
+import '../../../domain/entities/list_surah_entities/revelation_entities.dart';
+import '../../../domain/entities/list_surah_entities/tafsir_id_entities.dart';
 import '../list_surah_models/name_model.dart';
 import '../list_surah_models/revalation_model.dart';
 import 'pre_bismillah_model.dart';
@@ -66,7 +69,7 @@ class DetailSurah extends Equatable {
         number: number,
         name: name?.toEntity() as NameEntities,
         revelation: revelation?.toEntity() as RevelationEntities,
-        tafsir: tafsir?.toEntity() as TafsirIDEntities,
+        tafsir: tafsir?.toEntity() as TafsirEntities,
       );
 
   @override

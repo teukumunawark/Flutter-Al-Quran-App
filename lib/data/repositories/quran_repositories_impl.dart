@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../common/exception.dart';
 import '../../common/failure.dart';
+import '../../domain/entities/detail_surah_entities/detail_surah_entities.dart';
 import '../../domain/entities/list_surah_entities/surah_entities.dart';
 import '../../domain/repositories/quran_repository.dart';
 import '../datasources/quran_data_source.dart';

@@ -1,5 +1,6 @@
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../domain/entities/detail_surah_entities/id_entities.dart';
 
 class Id extends Equatable {
   final String? short;
