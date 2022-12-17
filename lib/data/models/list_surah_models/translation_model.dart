@@ -3,10 +3,10 @@ import 'package:equatable/equatable.dart';
 import '../../../domain/entities/list_surah_entities/translation_entities.dart';
 
 class TranslationModel extends Equatable {
-  final String en;
-  final String id;
+  final String? en;
+  final String? id;
 
-  const TranslationModel({required this.en, required this.id});
+  const TranslationModel({this.en, this.id});
 
   factory TranslationModel.fromJson(Map<String, dynamic> json) =>
       TranslationModel(
@@ -20,8 +20,8 @@ class TranslationModel extends Equatable {
       };
 
   TranslationEntities toEntity() => TranslationEntities(
-        en: en,
-        id: id,
+        en: en as String,
+        id: id as String,
       );
 
   @override

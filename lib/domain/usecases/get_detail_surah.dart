@@ -1,11 +1,15 @@
-// import 'package:al_quran_app/common/failure.dart';
-// import 'package:al_quran_app/domain/repositories/quran_repository.dart';
-// import 'package:dartz/dartz.dart';
+import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
+import 'package:dartz/dartz.dart';
 
-// class GetDetailSurah {
-//   final QuranRepository repository;
+import '../../common/failure.dart';
+import '../repositories/quran_repository.dart';
 
-//   GetDetailSurah(this.repository);
+class GetDetailSurah {
+  final SurahRepository repository;
 
-//   Future<Either<Failure, >>
-// }
+  GetDetailSurah(this.repository);
+
+  Future<Either<Failure, DetailSurahEntities>> execute() {
+    return repository.getDetailSurah();
+  }
+}

@@ -2,9 +2,16 @@ import 'dart:io';
 
 import 'package:al_quran_app/common/exception.dart';
 import 'package:al_quran_app/common/failure.dart';
+import 'package:al_quran_app/data/models/detail_surah/audio_model.dart';
 import 'package:al_quran_app/data/models/detail_surah/detail_surah_model.dart';
+import 'package:al_quran_app/data/models/detail_surah/id_model.dart';
+import 'package:al_quran_app/data/models/detail_surah/meta_model.dart';
+import 'package:al_quran_app/data/models/detail_surah/number_model.dart';
 import 'package:al_quran_app/data/models/detail_surah/pre_bismillah_model.dart';
+import 'package:al_quran_app/data/models/detail_surah/sajda_nodel.dart';
+import 'package:al_quran_app/data/models/detail_surah/tafsir_model.dart';
 import 'package:al_quran_app/data/models/detail_surah/text_model.dart';
+import 'package:al_quran_app/data/models/detail_surah/verse_model.dart';
 import 'package:al_quran_app/data/models/list_surah_models/name_model.dart';
 import 'package:al_quran_app/data/models/list_surah_models/revalation_model.dart';
 import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart';
@@ -133,32 +140,89 @@ void main() {
     "Get Surah Detail",
     () {
       const tId = 1;
-
       const tDetailSurahModel = DetailSurah(
-          number: 114,
-          sequence: 21,
-          numberOfVerses: 6,
-          name: NameModel(
-            short: "الناس",
-            long: "سورة الناس",
+        number: 114,
+        sequence: 21,
+        numberOfVerses: 6,
+        name: NameModel(
+          short: "الناس",
+          long: "سورة الناس",
+          transliteration: TranslationModel(en: "An-Naas", id: "An-Nas"),
+          translation: TranslationModel(en: "Mankind", id: "Manusia"),
+        ),
+        revelation: RevelationModel(arab: "مكة", en: "Meccan", id: "Makkiyyah"),
+        tafsir: TafsirModel(
+          id: "Surat ini terdiri atas 6 ayat, termasuk golongan surat-surat Makkiyah, diturunkan sesudah surat Al Falaq. Nama An Naas diambil dari An Naas yang berulang kali disebut dalam surat ini yang artinya manusia.",
+        ),
+        preBismillah: PreBismillahModel(
+          text: TextModel(
+            arab: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
             transliteration: TranslationModel(
-              en: "An-Naas",
-              id: "An-Nas",
+              en: "Bismillaahir Rahmaanir Raheem",
+            ),
+          ),
+          translation: TranslationModel(
+            en: "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            id: "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.",
+          ),
+          audio: Audio(
+            primary: "https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/1",
+            secondary: [
+              "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3",
+              "https://cdn.islamic.network/quran/audio/64/ar.alafasy/1.mp3",
+            ],
+          ),
+        ),
+        verses: [
+          VerseModel(
+            number: Number(inQuran: 6231, inSurah: 1),
+            meta: Meta(
+              juz: 30,
+              page: 604,
+              manzil: 7,
+              ruku: 556,
+              hizbQuarter: 240,
+              sajda: Sajda(recommended: false, obligatory: false),
+            ),
+            text: TextModel(
+              arab: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+              transliteration: TranslationModel(
+                en: "Qul a'uzu birabbin naas",
+              ),
             ),
             translation: TranslationModel(
-              en: "Mankind",
-              id: "Manusia",
+              en: "Qul a'uzu birabbin naas",
+              id: "Katakanlah, “Aku berlindung kepada Tuhannya manusia,",
+            ),
+            audio: Audio(
+              primary:
+                  "https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/6231",
+              secondary: [
+                "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3",
+                "https://cdn.islamic.network/quran/audio/64/ar.alafasy/6231.mp3",
+              ],
+            ),
+            tafsir: TafsirID(
+              id: Id(
+                short:
+                    "Wahai Nabi Muhammad, katakanlah kepada umatmu, “Aku berlindung kepada Tuhan yang menciptakan, memelihara, dan mengurus manusia.",
+                long:
+                    "Dalam ayat ini, Allah memerintahkan Nabi Muhammad termasuk pula di dalamnya seluruh umatnya agar memohon perlindungan kepada Tuhan yang menciptakan, menjaga, menumbuhkan, mengembangkan, dan menjaga kelangsungan hidup manusia dengan nikmat dan kasih sayang-Nya serta memberi peringatan kepada mereka dengan ancaman-ancaman-Nya.",
+              ),
             ),
           ),
-          revelation: RevelationModel(
-            arab: "مكة",
-            en: "Meccan",
-            id: "Makkiyyah",
-          ),
-          tafsir: TafsirModel(
-            id: "Surat ini terdiri atas 6 ayat, termasuk golongan surat-surat Makkiyah, diturunkan sesudah surat Al Falaq. Nama An Naas diambil dari An Naas yang berulang kali disebut dalam surat ini yang artinya manusia.",
-          ),
-          preBismillah: PreBismillahModel(text: TextModel()));
+        ],
+      );
+      // test(
+      //     "should return Surah data when the call to remote data source is successful",
+      //     () async {
+      //   // arrange
+      //   when(mockSurahRemoteDataSource.getDetailSurah(tId)).thenAnswer(
+      //     (_) async => tDetailSurahModel,
+      //   // act
+      //   );
+      //   final result = await repository.
+      // });
     },
   );
 }
