@@ -1,6 +1,9 @@
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../domain/entities/detail_surah_entities/audio_entities.dart';
+import '../../../domain/entities/detail_surah_entities/pre_bismillah_entities.dart';
+import '../../../domain/entities/detail_surah_entities/text_entities.dart';
+import '../../../domain/entities/list_surah_entities/translation_entities.dart';
 import '../list_surah_models/translation_model.dart';
 import 'audio_model.dart';
 import 'text_model.dart';

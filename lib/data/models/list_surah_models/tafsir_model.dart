@@ -15,7 +15,7 @@ class TafsirModel extends Equatable {
         'id': id,
       };
 
-  TafsirIDEntities toEntity() => TafsirIDEntities(id: id);
+  TafsirEntities toEntity() => TafsirEntities(id: id);
 
   @override
   List<Object?> get props => [id];

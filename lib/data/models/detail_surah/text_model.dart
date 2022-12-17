@@ -1,6 +1,8 @@
 import 'package:al_quran_app/data/models/list_surah_models/translation_model.dart';
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
+import 'package:al_quran_app/domain/entities/list_surah_entities/translation_entities.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../domain/entities/detail_surah_entities/text_entities.dart';
 
 class TextModel extends Equatable {
   final String? arab;
@@ -23,7 +25,7 @@ class TextModel extends Equatable {
 
   TextEntities toEntity() => TextEntities(
         arab: arab,
-        transliteration: transliteration?.toEntity() as TransliterationEntities,
+        transliteration: transliteration?.toEntity() as TranslationEntities,
       );
 
   @override

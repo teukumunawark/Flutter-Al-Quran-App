@@ -1,6 +1,8 @@
 import 'package:al_quran_app/data/models/detail_surah/id_model.dart';
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../domain/entities/detail_surah_entities/id_entities.dart';
+import '../../../domain/entities/detail_surah_entities/tafsir_entities.dart';
 
 class TafsirID extends Equatable {
   final Id? id;

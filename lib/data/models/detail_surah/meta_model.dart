@@ -1,6 +1,7 @@
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../domain/entities/detail_surah_entities/meta_entities.dart';
+import '../../../domain/entities/detail_surah_entities/sajda_entities.dart';
 import 'sajda_nodel.dart';
 
 class Meta extends Equatable {
