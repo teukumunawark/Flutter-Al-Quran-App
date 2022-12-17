@@ -1,7 +1,7 @@
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../common/failure.dart';
+import '../entities/detail_surah_entities/detail_surah_entities.dart';
 import '../repositories/quran_repository.dart';
 
 class GetDetailSurah {
