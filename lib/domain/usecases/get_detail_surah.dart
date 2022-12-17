@@ -9,7 +9,7 @@ class GetDetailSurah {
 
   GetDetailSurah(this.repository);
 
-  Future<Either<Failure, DetailSurahEntities>> execute() {
-    return repository.getDetailSurah();
+  Future<Either<Failure, DetailSurahEntities>> execute(int id) {
+    return repository.getDetailSurah(id);
   }
 }
