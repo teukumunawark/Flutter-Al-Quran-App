@@ -1,4 +1,17 @@
-import 'package:al_quran_app/domain/entities/surah_detail_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/audio_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/id_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/meta_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/number_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/pre_bismillah_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/sajda_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/tafsir_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/text_entities.dart';
+import 'package:al_quran_app/domain/entities/detail_surah_entities/verse_entities.dart';
+import 'package:al_quran_app/domain/entities/list_surah_entities/name_entities.dart';
+import 'package:al_quran_app/domain/entities/list_surah_entities/revelation_entities.dart';
+import 'package:al_quran_app/domain/entities/list_surah_entities/tafsir_id_entities.dart';
+import 'package:al_quran_app/domain/entities/list_surah_entities/translation_entities.dart';
 
 void main() {
   const tDetailSurahEntities = DetailSurahEntities(
@@ -8,7 +21,7 @@ void main() {
     name: NameEntities(
       short: "النصر",
       long: "سورة النصر",
-      transliteration: TransliterationEntities(
+      transliteration: TranslationEntities(
         en: "An-Nasr",
         id: "An-Nasr",
       ),
@@ -22,12 +35,13 @@ void main() {
       en: "Medinan",
       id: "Madaniyyah",
     ),
-    // tafsir: TafsirEntities(
-    //     id: "Surat An Nashr terdiri atas 3 ayat, termasuk golongan surat-surat  Madaniyyah yang diturunkan di Mekah sesudah surat At Taubah.  Dinamai An Nashr (pertolongan) diambil dari perkataan Nashr yang  terdapat pada ayat pertama surat ini."),
+    tafsir: TafsirEntities(
+      id: "Surat An Nashr terdiri atas 3 ayat, termasuk golongan surat-surat  Madaniyyah yang diturunkan di Mekah sesudah surat At Taubah.  Dinamai An Nashr (pertolongan) diambil dari perkataan Nashr yang  terdapat pada ayat pertama surat ini.",
+    ),
     preBismillah: PreBismillahEntities(
       text: TextEntities(
         arab: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        transliteration: TransliterationEntities(
+        transliteration: TranslationEntities(
           en: "Bismillaahir Rahmaanir Raheem",
         ),
       ),
@@ -62,7 +76,7 @@ void main() {
         ),
         text: TextEntities(
           arab: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
-          transliteration: TransliterationEntities(
+          transliteration: TranslationEntities(
             en: "Iza jaa-a nas rullahi walfath",
           ),
         ),
