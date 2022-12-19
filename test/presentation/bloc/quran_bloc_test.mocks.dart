@@ -6,9 +6,12 @@
 import 'dart:async' as _i5;
 
 import 'package:al_quran_app/common/failure.dart' as _i6;
+import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart'
+    as _i9;
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
     as _i7;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i2;
+import 'package:al_quran_app/domain/usecases/get_detail_surah.dart' as _i8;
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart' as _i4;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -78,4 +81,40 @@ class MockGetSurahList extends _i1.Mock implements _i4.GetSurahList {
           ),
         )),
       ) as _i5.Future<_i3.Either<_i6.Failure, List<_i7.SurahEntities>>>);
+}
+
+/// A class which mocks [GetDetailSurah].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetDetailSurah extends _i1.Mock implements _i8.GetDetailSurah {
+  MockGetDetailSurah() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.SurahRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeSurahRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.SurahRepository);
+  @override
+  _i5.Future<_i3.Either<_i6.Failure, _i9.DetailSurahEntities>> execute(
+          int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #execute,
+          [id],
+        ),
+        returnValue:
+            _i5.Future<_i3.Either<_i6.Failure, _i9.DetailSurahEntities>>.value(
+                _FakeEither_1<_i6.Failure, _i9.DetailSurahEntities>(
+          this,
+          Invocation.method(
+            #execute,
+            [id],
+          ),
+        )),
+      ) as _i5.Future<_i3.Either<_i6.Failure, _i9.DetailSurahEntities>>);
 }
