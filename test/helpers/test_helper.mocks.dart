@@ -4,15 +4,17 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
-import 'dart:convert' as _i11;
-import 'dart:typed_data' as _i12;
+import 'dart:convert' as _i12;
+import 'dart:typed_data' as _i13;
 
 import 'package:al_quran_app/common/failure.dart' as _i7;
-import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i9;
+import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i10;
 import 'package:al_quran_app/data/models/detail_surah/detail_surah_model.dart'
     as _i3;
 import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart'
-    as _i10;
+    as _i11;
+import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart'
+    as _i9;
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
     as _i8;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i5;
@@ -97,26 +99,44 @@ class MockSurahRepository extends _i1.Mock implements _i5.SurahRepository {
           ),
         )),
       ) as _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>>);
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>> getDetailSurah(
+          int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDetailSurah,
+          [id],
+        ),
+        returnValue:
+            _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>>.value(
+                _FakeEither_0<_i7.Failure, _i9.DetailSurahEntities>(
+          this,
+          Invocation.method(
+            #getDetailSurah,
+            [id],
+          ),
+        )),
+      ) as _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>>);
 }
 
 /// A class which mocks [SurahRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSurahRemoteDataSource extends _i1.Mock
-    implements _i9.SurahRemoteDataSource {
+    implements _i10.SurahRemoteDataSource {
   MockSurahRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<List<_i10.SurahModel>> getListSurah() => (super.noSuchMethod(
+  _i6.Future<List<_i11.SurahModel>> getListSurah() => (super.noSuchMethod(
         Invocation.method(
           #getListSurah,
           [],
         ),
         returnValue:
-            _i6.Future<List<_i10.SurahModel>>.value(<_i10.SurahModel>[]),
-      ) as _i6.Future<List<_i10.SurahModel>>);
+            _i6.Future<List<_i11.SurahModel>>.value(<_i11.SurahModel>[]),
+      ) as _i6.Future<List<_i11.SurahModel>>);
   @override
   _i6.Future<_i3.DetailSurah> getDetailSurah(int? id) => (super.noSuchMethod(
         Invocation.method(
@@ -186,7 +206,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -216,7 +236,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -246,7 +266,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -276,7 +296,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -315,7 +335,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
         returnValue: _i6.Future<String>.value(''),
       ) as _i6.Future<String>);
   @override
-  _i6.Future<_i12.Uint8List> readBytes(
+  _i6.Future<_i13.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -325,8 +345,8 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i12.Uint8List>.value(_i12.Uint8List(0)),
-      ) as _i6.Future<_i12.Uint8List>);
+        returnValue: _i6.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
+      ) as _i6.Future<_i13.Uint8List>);
   @override
   _i6.Future<_i4.StreamedResponse> send(_i4.BaseRequest? request) =>
       (super.noSuchMethod(

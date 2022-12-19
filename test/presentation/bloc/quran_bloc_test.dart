@@ -1,4 +1,5 @@
 import 'package:al_quran_app/common/failure.dart';
+import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -12,20 +13,25 @@ import 'quran_bloc_test.mocks.dart';
 
 @GenerateMocks([
   GetSurahList,
+  GetDetailSurah,
 ])
 void main() {
   late SurahListBloc surahListBloc;
+  late DetailSurahBloc detailSurahBloc;
+
   late MockGetSurahList mockGetQuranList;
+  late MockGetDetailSurah mockGetDetailSurah;
 
   setUp(() {
     mockGetQuranList = MockGetSurahList();
     surahListBloc = SurahListBloc(mockGetQuranList);
   });
-  test("Initial state should be Loading", () {
+  group("List Surah", (){
+    test("Initial state should be Loading", () {
     expect(surahListBloc.state, QuranLoading());
-  });
+  },);
 
-  blocTest<SurahListBloc, QuranState>(
+  blocTest<SurahListBloc, SurahState>(
     "Should emit [Loading, HasData] when data is gotten successfully",
     build: () {
       when(mockGetQuranList.execute())
@@ -40,7 +46,7 @@ void main() {
     verify: (bloc) => verify(mockGetQuranList.execute()),
   );
 
-  blocTest<SurahListBloc, QuranState>(
+  blocTest<SurahListBloc, SurahState>(
     "Should emit [Loading, Error] when get movie is unsuccessful",
     build: () {
       when(mockGetQuranList.execute())
@@ -53,5 +59,13 @@ void main() {
       const QuranError("Server Failure"),
     ],
     verify: (bloc) => verify(mockGetQuranList.execute()),
+  );
+  });
+
+  blocTest<DetailSurahBloc, SurahState>(
+    "Should emit [Loading, HasData] when data is gotten successfully",
+    build: () {
+      when(mockGetDetailSurah.execute(id))
+    },
   );
 }
