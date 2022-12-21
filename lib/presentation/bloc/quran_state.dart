@@ -28,3 +28,12 @@ class QuranHasData extends SurahState {
   @override
   List<Object> get props => [listQuran];
 }
+
+class DetailSurahHasData extends SurahState {
+  final DetailSurahEntities detailSurah;
+
+  const DetailSurahHasData(this.detailSurah);
+
+  @override
+  List<Object> get props => [detailSurah];
+}
