@@ -1,3 +1,4 @@
+import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
 import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
 import 'package:equatable/equatable.dart';
@@ -34,8 +35,8 @@ class DetailSurahBloc extends Bloc<SurahEvent, SurahState> {
 
       final result = await _getDetailSurah.execute(id);
       result.fold(
-        (l) => null,
-        (r) => null,
+        (failure) => emit(QuranError(failure.message)),
+        (data) => emit(DetailSurahHasData(data)),
       );
     });
   }
