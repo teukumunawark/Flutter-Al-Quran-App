@@ -24,48 +24,85 @@ void main() {
 
   setUp(() {
     mockGetQuranList = MockGetSurahList();
+    mockGetDetailSurah = MockGetDetailSurah();
     surahListBloc = SurahListBloc(mockGetQuranList);
+    detailSurahBloc = DetailSurahBloc(mockGetDetailSurah);
   });
-  group("List Surah", (){
-    test("Initial state should be Loading", () {
-    expect(surahListBloc.state, QuranLoading());
-  },);
+  group("List Surah", () {
+    test(
+      "Initial state should be Loading",
+      () {
+        expect(surahListBloc.state, QuranLoading());
+      },
+    );
 
-  blocTest<SurahListBloc, SurahState>(
-    "Should emit [Loading, HasData] when data is gotten successfully",
-    build: () {
-      when(mockGetQuranList.execute())
-          .thenAnswer((_) async => Right(testQuranList));
-      return surahListBloc;
-    },
-    act: (bloc) => bloc.add(OnQuranList()),
-    expect: () => [
-      QuranLoading(),
-      QuranHasData(testQuranList),
-    ],
-    verify: (bloc) => verify(mockGetQuranList.execute()),
-  );
+    blocTest<SurahListBloc, SurahState>(
+      "Should emit [Loading, HasData] when data is gotten successfully",
+      build: () {
+        when(mockGetQuranList.execute())
+            .thenAnswer((_) async => Right(testQuranList));
+        return surahListBloc;
+      },
+      act: (bloc) => bloc.add(OnQuranList()),
+      expect: () => [
+        QuranLoading(),
+        QuranHasData(testQuranList),
+      ],
+      verify: (bloc) => verify(mockGetQuranList.execute()),
+    );
 
-  blocTest<SurahListBloc, SurahState>(
-    "Should emit [Loading, Error] when get movie is unsuccessful",
-    build: () {
-      when(mockGetQuranList.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
-      return surahListBloc;
-    },
-    act: (bloc) => bloc.add(OnQuranList()),
-    expect: () => [
-      QuranLoading(),
-      const QuranError("Server Failure"),
-    ],
-    verify: (bloc) => verify(mockGetQuranList.execute()),
-  );
+    blocTest<SurahListBloc, SurahState>(
+      "Should emit [Loading, Error] when get movie is unsuccessful",
+      build: () {
+        when(mockGetQuranList.execute())
+            .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
+        return surahListBloc;
+      },
+      act: (bloc) => bloc.add(OnQuranList()),
+      expect: () => [
+        QuranLoading(),
+        const QuranError("Server Failure"),
+      ],
+      verify: (bloc) => verify(mockGetQuranList.execute()),
+    );
   });
 
-  blocTest<DetailSurahBloc, SurahState>(
-    "Should emit [Loading, HasData] when data is gotten successfully",
-    build: () {
-      when(mockGetDetailSurah.execute(id))
-    },
-  );
+  group("Detail Surah", () {
+    const tId = 1;
+
+    test(
+      "Initial state should be Loading",
+      () {
+        expect(detailSurahBloc.state, QuranLoading());
+      },
+    );
+
+    blocTest<DetailSurahBloc, SurahState>(
+      "Should emit [Loading, HasData] when data is gotten successfully",
+      build: () {
+        when(mockGetDetailSurah.execute(tId))
+            .thenAnswer((_) async => const Right(tDetailSurahEntities));
+        return detailSurahBloc;
+      },
+      act: (bloc) => bloc.add(const OnDetailSurah(tId)),
+      expect: () => [
+        QuranLoading(),
+        const DetailSurahHasData(tDetailSurahEntities),
+      ],
+    );
+
+    blocTest<DetailSurahBloc, SurahState>(
+      "Should emit [Loading, Error] when get movie is unsuccessful",
+      build: () {
+        when(mockGetDetailSurah.execute(tId))
+            .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
+        return detailSurahBloc;
+      },
+      act: (bloc) => bloc.add(const OnDetailSurah(tId)),
+      expect: () => [
+        QuranLoading(),
+        const QuranError("Server Failure"),
+      ],
+    );
+  });
 }
