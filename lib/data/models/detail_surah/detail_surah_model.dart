@@ -67,9 +67,13 @@ class DetailSurah extends Equatable {
 
   DetailSurahEntities toEntity() => DetailSurahEntities(
         number: number,
+        sequence: sequence,
+        numberOfVerses: numberOfVerses,
         name: name?.toEntity() as NameEntities,
         revelation: revelation?.toEntity() as RevelationEntities,
         tafsir: tafsir?.toEntity() as TafsirEntities,
+        preBismillah: preBismillah?.toEntity(),
+        verses: verses?.map((e) => e.toEntity()).toList(),
       );
 
   @override

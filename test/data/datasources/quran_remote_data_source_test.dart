@@ -12,7 +12,7 @@ import 'package:http/http.dart' as http;
 import '../../json_reader.dart';
 
 void main() {
-  const BASE_URL = 'https://api.quran.gading.dev';
+  const baseURL = 'https://api.quran.gading.dev';
 
   late SurahRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
@@ -30,7 +30,7 @@ void main() {
     test('should return list of Surah Model when the response code is 200',
         () async {
       // arrange
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/surah'))).thenAnswer(
+      when(mockHttpClient.get(Uri.parse('$baseURL/surah'))).thenAnswer(
         (_) async => http.Response(
           readJson('dummy_data/list_quran.json'),
           200,
@@ -49,7 +49,7 @@ void main() {
         "should throw a ServerException when the response code is 404 or other",
         () async {
       // arrange
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/surah')))
+      when(mockHttpClient.get(Uri.parse('$baseURL/surah')))
           .thenAnswer((_) async => http.Response("Not Found", 404));
       // act
       final call = dataSource.getListSurah();
@@ -69,7 +69,7 @@ void main() {
       'should return detail surah when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse('$BASE_URL/surah/$tId'))).thenAnswer(
+        when(mockHttpClient.get(Uri.parse('$baseURL/surah/$tId'))).thenAnswer(
             (_) async => http.Response(
                     readJson('dummy_data/detail_surah.json'), 200, headers: {
                   HttpHeaders.contentTypeHeader:
@@ -85,7 +85,7 @@ void main() {
     test('should throw Server Exception when the response code is 404 or other',
         () async {
       // arrange
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/surah/$tId'))).thenAnswer(
+      when(mockHttpClient.get(Uri.parse('$baseURL/surah/$tId'))).thenAnswer(
           (_) async => http.Response(
                   readJson('dummy_data/detail_surah.json'), 404, headers: {
                 HttpHeaders.contentTypeHeader: "application/json; charset=utf-8"
