@@ -20,8 +20,8 @@ class TranslationModel extends Equatable {
       };
 
   TranslationEntities toEntity() => TranslationEntities(
-        en: en as String,
-        id: id as String,
+        en: en,
+        id: id,
       );
 
   @override
