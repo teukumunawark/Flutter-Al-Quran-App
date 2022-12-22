@@ -27,6 +27,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../dummy_data/dummy_data_objects.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
@@ -139,20 +140,30 @@ void main() {
   group(
     "Get Surah Detail",
     () {
-      const tId = 1;
+      const tId = 110;
       const tDetailSurahModel = DetailSurah(
-        number: 114,
-        sequence: 21,
-        numberOfVerses: 6,
+        number: 110,
+        sequence: 114,
+        numberOfVerses: 3,
         name: NameModel(
-          short: "الناس",
-          long: "سورة الناس",
-          transliteration: TranslationModel(en: "An-Naas", id: "An-Nas"),
-          translation: TranslationModel(en: "Mankind", id: "Manusia"),
+          short: "النصر",
+          long: "سورة النصر",
+          transliteration: TranslationModel(
+            en: "An-Nasr",
+            id: "An-Nasr",
+          ),
+          translation: TranslationModel(
+            en: "Divine Support",
+            id: "Pertolongan",
+          ),
         ),
-        revelation: RevelationModel(arab: "مكة", en: "Meccan", id: "Makkiyyah"),
+        revelation: RevelationModel(
+          arab: "مدينة",
+          en: "Medinan",
+          id: "Madaniyyah",
+        ),
         tafsir: TafsirModel(
-          id: "Surat ini terdiri atas 6 ayat, termasuk golongan surat-surat Makkiyah, diturunkan sesudah surat Al Falaq. Nama An Naas diambil dari An Naas yang berulang kali disebut dalam surat ini yang artinya manusia.",
+          id: "Surat An Nashr terdiri atas 3 ayat, termasuk golongan surat-surat  Madaniyyah yang diturunkan di Mekah sesudah surat At Taubah.  Dinamai An Nashr (pertolongan) diambil dari perkataan Nashr yang  terdapat pada ayat pertama surat ini.",
         ),
         preBismillah: PreBismillahModel(
           text: TextModel(
@@ -175,54 +186,56 @@ void main() {
         ),
         verses: [
           VerseModel(
-            number: Number(inQuran: 6231, inSurah: 1),
+            number: Number(inQuran: 6214, inSurah: 1),
             meta: Meta(
               juz: 30,
-              page: 604,
+              page: 603,
               manzil: 7,
-              ruku: 556,
+              ruku: 552,
               hizbQuarter: 240,
               sajda: Sajda(recommended: false, obligatory: false),
             ),
             text: TextModel(
-              arab: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+              arab: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
               transliteration: TranslationModel(
-                en: "Qul a'uzu birabbin naas",
+                en: "Iza jaa-a nas rullahi walfath",
               ),
             ),
             translation: TranslationModel(
-              en: "Qul a'uzu birabbin naas",
-              id: "Katakanlah, “Aku berlindung kepada Tuhannya manusia,",
+              en: "When the victory of Allah has come and the conquest,",
+              id: "Apabila telah datang pertolongan Allah dan kemenangan,",
             ),
             audio: Audio(
               primary:
-                  "https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/6231",
+                  "https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/1",
               secondary: [
-                "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3",
-                "https://cdn.islamic.network/quran/audio/64/ar.alafasy/6231.mp3",
+                "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3",
+                "https://cdn.islamic.network/quran/audio/64/ar.alafasy/1.mp3",
               ],
             ),
             tafsir: TafsirID(
               id: Id(
                 short:
-                    "Wahai Nabi Muhammad, katakanlah kepada umatmu, “Aku berlindung kepada Tuhan yang menciptakan, memelihara, dan mengurus manusia.",
+                    "Wahai Nabi Muhammad, apabila telah datang pertolongan Allah kepadamu dan pengikutmu dalam menghadapi kaum kafir Quraisy, dan telah datang pula kemenangan kepadamu dengan penaklukan Mekah menjadi kota yang suci kembali dari kesyirikan dan kekafiran,",
                 long:
-                    "Dalam ayat ini, Allah memerintahkan Nabi Muhammad termasuk pula di dalamnya seluruh umatnya agar memohon perlindungan kepada Tuhan yang menciptakan, menjaga, menumbuhkan, mengembangkan, dan menjaga kelangsungan hidup manusia dengan nikmat dan kasih sayang-Nya serta memberi peringatan kepada mereka dengan ancaman-ancaman-Nya.",
+                    "Dalam ayat-ayat ini, Allah memerintahkan apa yang harus dilakukan Nabi Muhammad pada saat pembebasan Mekah, yaitu apabila ia telah melihat pertolongan Allah terhadap agama-Nya telah tiba, dengan kekalahan orang-orang musyrik dan kemenangan di pihak Nabi, dan melihat pula orang-orang masuk agama Allah beramai-ramai dan berduyun-duyun, bukan perseorangan sebagaimana halnya pada permulaan dakwah.\n\nOrang-orang Arab berkata, \"Manakala Muhammad menang atas penduduk Mekah yang mana Allah telah selamatkan mereka dari pasukan bergajah, maka kalian tidak berdaya melawannya.\" Akhirnya mereka masuk Islam berduyun-duyun, berkelompok-kelompok dan satu kelompok 40 orang.",
               ),
             ),
           ),
         ],
       );
-      // test(
-      //     "should return Surah data when the call to remote data source is successful",
-      //     () async {
-      //   // arrange
-      //   when(mockSurahRemoteDataSource.getDetailSurah(tId)).thenAnswer(
-      //     (_) async => tDetailSurahModel,
-      //   // act
-      //   );
-      //   final result = await repository.
-      // });
+      test(
+          "should return Surah data when the call to remote data source is successful",
+          () async {
+        // arrange
+        when(mockSurahRemoteDataSource.getDetailSurah(tId))
+            .thenAnswer((_) async => tDetailSurahModel);
+        // act
+        final result = await repository.getDetailSurah(tId);
+        // assert
+        verify(mockSurahRemoteDataSource.getDetailSurah(tId));
+        expect(result, equals(const Right(tDetailSurahEntities)));
+      });
     },
   );
 }
