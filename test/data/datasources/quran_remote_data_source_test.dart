@@ -13,10 +13,8 @@ import '../../json_reader.dart';
 
 void main() {
   const baseURL = 'https://api.quran.gading.dev';
-
   late SurahRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
-
   setUp(() {
     mockHttpClient = MockHttpClient();
     dataSource = SurahRemoteDataSourceImpl(client: mockHttpClient);
@@ -31,13 +29,10 @@ void main() {
         () async {
       // arrange
       when(mockHttpClient.get(Uri.parse('$baseURL/surah'))).thenAnswer(
-        (_) async => http.Response(
-          readJson('dummy_data/list_quran.json'),
-          200,
-          headers: {
-            HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
-          },
-        ),
+        (_) async => http.Response(readJson('dummy_data/list_quran.json'), 200,
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+            }),
       );
       // act
       final result = await dataSource.getListSurah();
