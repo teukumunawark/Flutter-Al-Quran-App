@@ -14,6 +14,10 @@ void init() {
   locator.registerFactory(() => SurahListBloc(
         locator(),
       ));
+  locator.registerFactory(() => DetailSurahBloc(
+        locator(),
+      ));
+
   // Use Case
   locator.registerLazySingleton(() => GetSurahList(
         locator(),
