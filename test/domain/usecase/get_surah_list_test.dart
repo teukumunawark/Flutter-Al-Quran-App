@@ -17,8 +17,6 @@ void main() {
 
   final tSurah = <SurahEntities>[];
 
-  test("description", () {});
-
   test("should get Popular TV Series from the repository", () async {
     // arrange
     when(mockRepository.getListSurah()).thenAnswer((_) async => Right(tSurah));
