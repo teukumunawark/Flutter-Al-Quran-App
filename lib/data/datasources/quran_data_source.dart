@@ -14,14 +14,13 @@ abstract class SurahRemoteDataSource {
 
 class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   static const baseURL = 'https://api.quran.gading.dev';
-
   final http.Client client;
-
   SurahRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<SurahModel>> getListSurah() async {
     final response = await client.get(Uri.parse('$baseURL/surah'));
+    print(response.body);
     if (response.statusCode == 200) {
       return QuranResponse.fromJson(json.decode(response.body)).quranList;
     } else {
@@ -33,7 +32,7 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   Future<DetailSurah> getDetailSurah(int id) async {
     final response = await client.get(Uri.parse('$baseURL/surah/$id'));
     if (response.statusCode == 200) {
-      return DetailSurah.fromJson(json.decode(response.body));
+      return DetailSurah.fromJson(json.decode(response.body)['data']);
     } else {
       throw ServerException();
     }

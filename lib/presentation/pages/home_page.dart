@@ -1,30 +1,38 @@
 import 'package:al_quran_app/common/constants.dart';
+import 'package:al_quran_app/presentation/pages/para_page.dart';
+import 'package:al_quran_app/presentation/pages/surah_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/home';
 
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     PreferredSizeWidget appBar() {
       return AppBar(
         elevation: 0,
+        toolbarHeight: size.height * 0.09,
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            SvgPicture.asset('assets/svg/menu-icon.svg'),
+            IconButton(
+              icon: SvgPicture.asset('assets/svg/menu-icon.svg'),
+              onPressed: () {},
+            ),
             const SizedBox(width: 24),
             Text(
               "Quran App",
-              style: kHeading5.copyWith(color: kMeteorite),
+              style: kHeading5.copyWith(color: kBlueViolet),
             ),
             const Spacer(),
-            SvgPicture.asset('assets/svg/search-icon.svg'),
+            IconButton(
+              icon: SvgPicture.asset('assets/svg/search-icon.svg'),
+              onPressed: () {},
+            ),
           ],
         ),
       );
@@ -39,16 +47,17 @@ class HomePage extends StatelessWidget {
             ),
             Text(
               "teuku munawar",
-              style: kHeading5.copyWith(color: kMeteorite, fontSize: 24),
+              style: kHeading5.copyWith(color: kBlueViolet, fontSize: 24),
             ),
           ],
         );
 
     Widget buildCard() => Padding(
-          padding: const EdgeInsets.only(top: 24),
+          padding: const EdgeInsets.only(top: 15, bottom: 10),
           child: Container(
             width: size.width,
             height: size.height * 0.2,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [
@@ -79,7 +88,7 @@ class HomePage extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text("Al-Fatiah",
-                          style: kHeading6.copyWith(
+                          style: kHeading5.copyWith(
                             fontWeight: FontWeight.w600,
                           )),
                       const SizedBox(height: 5),
@@ -97,23 +106,113 @@ class HomePage extends StatelessWidget {
           ),
         );
 
-    Widget buildTap() => Row(
-          children: const [],
+    Widget body() => DefaultTabController(
+          length: 2,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: NestedScrollView(
+              physics: const BouncingScrollPhysics(),
+              headerSliverBuilder: (context, innerBoxIsScrolled) {
+                return [
+                  SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        textHeader(),
+                        buildCard(),
+                      ],
+                    ),
+                  ),
+                  SliverAppBar(
+                    backgroundColor: kWhite,
+                    pinned: true,
+                    elevation: 0,
+                    automaticallyImplyLeading: false,
+                    shape: Border(
+                      bottom: BorderSide(
+                        width: 3,
+                        color: kMeteorite.withOpacity(0.1),
+                      ),
+                    ),
+                    bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(0),
+                      child: TabBar(
+                        unselectedLabelColor: kOsloGrey,
+                        labelColor: kMeteorite,
+                        indicatorColor: kBlueViolet,
+                        indicatorWeight: 3,
+                        tabs: [
+                          Tab(
+                            child: Text(
+                              "Surah",
+                              style: kHeading6.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Tab(
+                            child: Text(
+                              "Juz",
+                              style: kHeading6.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ];
+              },
+              body: const TabBarView(
+                physics: BouncingScrollPhysics(),
+                children: [
+                  SurahPage(),
+                  JuzPage(),
+                ],
+              ),
+            ),
+          ),
+        );
+
+    bottomNavigationBarItem({required iconPath, required label}) =>
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            iconPath,
+            color: kOsloGrey,
+          ),
+          label: label,
+          activeIcon: SvgPicture.asset(
+            iconPath,
+            color: kBlueViolet,
+          ),
+        );
+
+    bottomNavigationBar() => BottomNavigationBar(
+          showSelectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          showUnselectedLabels: false,
+          backgroundColor: kWhite,
+          items: [
+            bottomNavigationBarItem(
+              iconPath: "assets/svg/quran-icon.svg",
+              label: "quran",
+            ),
+            bottomNavigationBarItem(
+              iconPath: "assets/svg/pray-icon.svg",
+              label: "quran",
+            ),
+            bottomNavigationBarItem(
+              iconPath: "assets/svg/bookmark-icon.svg",
+              label: "quran",
+            ),
+          ],
         );
 
     return Scaffold(
       appBar: appBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            textHeader(),
-            buildCard(),
-            buildTap(),
-          ],
-        ),
-      ),
+      body: body(),
+      bottomNavigationBar: bottomNavigationBar(),
     );
   }
 }
