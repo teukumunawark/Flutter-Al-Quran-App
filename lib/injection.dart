@@ -1,5 +1,6 @@
 import 'package:al_quran_app/data/datasources/quran_data_source.dart';
 import 'package:al_quran_app/domain/repositories/quran_repository.dart';
+import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -22,6 +23,11 @@ void init() {
   locator.registerLazySingleton(() => GetSurahList(
         locator(),
       ));
+
+  locator.registerLazySingleton(() => GetDetailSurah(
+        locator(),
+      ));
+
   // Repository
   locator.registerLazySingleton<SurahRepository>(
     () => SurahRepositoryImpl(remoteDataSource: locator()),
