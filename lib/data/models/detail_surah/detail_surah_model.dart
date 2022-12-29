@@ -2,9 +2,6 @@ import 'package:al_quran_app/data/models/list_surah_models/tafsir_model.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../domain/entities/detail_surah_entities/detail_surah_entities.dart';
-import '../../../domain/entities/list_surah_entities/name_entities.dart';
-import '../../../domain/entities/list_surah_entities/revelation_entities.dart';
-import '../../../domain/entities/list_surah_entities/tafsir_id_entities.dart';
 import '../list_surah_models/name_model.dart';
 import '../list_surah_models/revalation_model.dart';
 import 'pre_bismillah_model.dart';
@@ -21,7 +18,7 @@ class DetailSurah extends Equatable {
   final List<VerseModel>? verses;
 
   const DetailSurah({
-    required this.name,
+    this.name,
     this.number,
     this.sequence,
     this.numberOfVerses,
@@ -69,9 +66,9 @@ class DetailSurah extends Equatable {
         number: number,
         sequence: sequence,
         numberOfVerses: numberOfVerses,
-        name: name?.toEntity() as NameEntities,
-        revelation: revelation?.toEntity() as RevelationEntities,
-        tafsir: tafsir?.toEntity() as TafsirEntities,
+        name: name?.toEntity(),
+        revelation: revelation?.toEntity(),
+        tafsir: tafsir?.toEntity(),
         preBismillah: preBismillah?.toEntity(),
         verses: verses?.map((e) => e.toEntity()).toList(),
       );
