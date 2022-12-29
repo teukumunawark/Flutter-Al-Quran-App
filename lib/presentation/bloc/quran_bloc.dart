@@ -12,13 +12,13 @@ part 'quran_state.dart';
 class SurahListBloc extends Bloc<SurahEvent, SurahState> {
   final GetSurahList _getQuranList;
 
-  SurahListBloc(this._getQuranList) : super(QuranLoading()) {
+  SurahListBloc(this._getQuranList) : super(SurahLoading()) {
     on<OnQuranList>((event, emit) async {
-      emit(QuranLoading());
+      emit(SurahLoading());
       final result = await _getQuranList.execute();
       result.fold(
-        (failure) => emit(QuranError(failure.message)),
-        (data) => emit(QuranHasData(data)),
+        (failure) => emit(SurahError(failure.message)),
+        (data) => emit(SurahHasData(data)),
       );
     });
   }
@@ -27,15 +27,15 @@ class SurahListBloc extends Bloc<SurahEvent, SurahState> {
 class DetailSurahBloc extends Bloc<SurahEvent, SurahState> {
   final GetDetailSurah _getDetailSurah;
 
-  DetailSurahBloc(this._getDetailSurah) : super(QuranLoading()) {
+  DetailSurahBloc(this._getDetailSurah) : super(SurahLoading()) {
     on<OnDetailSurah>((event, emit) async {
       final id = event.id;
 
-      emit(QuranLoading());
+      emit(SurahLoading());
 
       final result = await _getDetailSurah.execute(id);
       result.fold(
-        (failure) => emit(QuranError(failure.message)),
+        (failure) => emit(SurahError(failure.message)),
         (data) => emit(DetailSurahHasData(data)),
       );
     });
