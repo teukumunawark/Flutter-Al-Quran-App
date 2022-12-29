@@ -6,6 +6,8 @@ const Color kLightSalmon = Color(0xffF9B091);
 const Color kBlueViolet = Color(0xff863ED5);
 const Color kOsloGrey = Color(0xff8789A3);
 const Color kWhite = Color(0xffFFFFFF);
+const Color kBlack = Color(0xff240F4F);
+const Color kGrey = Color(0xffF3EFF4);
 
 final TextStyle kHeading4 = GoogleFonts.poppins(
   fontSize: 28,
@@ -25,11 +27,11 @@ final TextStyle kTitle = GoogleFonts.poppins(
 );
 final TextStyle kSubtitle = GoogleFonts.poppins(
   fontSize: 14,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w500,
 );
 final TextStyle kBodyText = GoogleFonts.poppins(
-  fontSize: 12,
-  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
 );
 
 final kTextTheme = TextTheme(
