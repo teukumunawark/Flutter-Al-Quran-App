@@ -32,7 +32,7 @@ void main() {
     test(
       "Initial state should be Loading",
       () {
-        expect(surahListBloc.state, QuranLoading());
+        expect(surahListBloc.state, SurahLoading());
       },
     );
 
@@ -45,8 +45,8 @@ void main() {
       },
       act: (bloc) => bloc.add(OnQuranList()),
       expect: () => [
-        QuranLoading(),
-        QuranHasData(testQuranList),
+        SurahLoading(),
+        SurahHasData(testQuranList),
       ],
       verify: (bloc) => verify(mockGetQuranList.execute()),
     );
@@ -60,8 +60,8 @@ void main() {
       },
       act: (bloc) => bloc.add(OnQuranList()),
       expect: () => [
-        QuranLoading(),
-        const QuranError("Server Failure"),
+        SurahLoading(),
+        const SurahError("Server Failure"),
       ],
       verify: (bloc) => verify(mockGetQuranList.execute()),
     );
@@ -73,7 +73,7 @@ void main() {
     test(
       "Initial state should be Loading",
       () {
-        expect(detailSurahBloc.state, QuranLoading());
+        expect(detailSurahBloc.state, SurahLoading());
       },
     );
 
@@ -86,7 +86,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const OnDetailSurah(tId)),
       expect: () => [
-        QuranLoading(),
+        SurahLoading(),
         const DetailSurahHasData(tDetailSurahEntities),
       ],
     );
@@ -100,8 +100,8 @@ void main() {
       },
       act: (bloc) => bloc.add(const OnDetailSurah(tId)),
       expect: () => [
-        QuranLoading(),
-        const QuranError("Server Failure"),
+        SurahLoading(),
+        const SurahError("Server Failure"),
       ],
     );
   });
