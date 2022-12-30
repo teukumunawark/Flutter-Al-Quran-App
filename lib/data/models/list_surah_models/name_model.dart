@@ -4,10 +4,10 @@ import '../../../domain/entities/list_surah_entities/name_entities.dart';
 import 'translation_model.dart';
 
 class NameModel extends Equatable {
-  final String short;
-  final String long;
-  final TranslationModel translation;
-  final TranslationModel transliteration;
+  final String? short;
+  final String? long;
+  final TranslationModel? translation;
+  final TranslationModel? transliteration;
 
   const NameModel({
     required this.short,
@@ -28,15 +28,15 @@ class NameModel extends Equatable {
   Map<String, dynamic> toJson() => {
         'short': short,
         'long': long,
-        'transliteration': transliteration.toJson(),
-        'translation': translation.toJson(),
+        'transliteration': transliteration?.toJson(),
+        'translation': translation?.toJson(),
       };
 
   NameEntities toEntity() => NameEntities(
         short: short,
         long: long,
-        translation: translation.toEntity(),
-        transliteration: transliteration.toEntity(),
+        translation: translation?.toEntity(),
+        transliteration: transliteration?.toEntity(),
       );
 
   @override

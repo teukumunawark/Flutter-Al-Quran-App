@@ -3,14 +3,14 @@ import 'package:equatable/equatable.dart';
 import '../../../domain/entities/list_surah_entities/revelation_entities.dart';
 
 class RevelationModel extends Equatable {
-  final String arab;
-  final String en;
-  final String id;
+  final String? arab;
+  final String? en;
+  final String? id;
 
   const RevelationModel({
-    required this.arab,
-    required this.en,
-    required this.id,
+    this.arab,
+    this.en,
+    this.id,
   });
 
   factory RevelationModel.fromJson(Map<String, dynamic> json) =>

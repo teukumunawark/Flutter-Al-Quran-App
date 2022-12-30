@@ -77,7 +77,7 @@ class BuildDetail extends StatelessWidget {
               ),
               const SizedBox(width: 24),
               Text(
-                surah.name!.transliteration.id.toString(),
+                surah.name?.transliteration?.id as String,
                 style: kHeading5.copyWith(color: kBlueViolet),
               ),
               const Spacer(),
@@ -118,12 +118,12 @@ class BuildDetail extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          surah.name!.transliteration.id.toString(),
+                          surah.name?.transliteration?.id as String,
                           style: kHeading5.copyWith(fontSize: 28),
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          surah.name!.translation.id.toString(),
+                          surah.name?.translation?.id as String,
                           style: kHeading5.copyWith(fontSize: 18),
                         ),
                         const SizedBox(height: 2),
