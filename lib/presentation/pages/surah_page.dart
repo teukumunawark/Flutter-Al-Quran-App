@@ -76,7 +76,7 @@ class BuildSurahList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        surah.name.transliteration.id.toString(),
+                        surah.name!.transliteration!.id.toString(),
                         style: kHeading5.copyWith(
                           fontSize: 16,
                           color: kBlack,
@@ -84,7 +84,7 @@ class BuildSurahList extends StatelessWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        "${surah.revelation.id} | ${surah.numberOfVerses} ayat"
+                        "${surah.revelation!.id} | ${surah.numberOfVerses} ayat"
                             .toUpperCase(),
                         style: kSubtitle.copyWith(
                           color: kOsloGrey,
@@ -94,7 +94,7 @@ class BuildSurahList extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    surah.name.short,
+                    surah.name!.short.toString(),
                     style: GoogleFonts.amiri(
                       color: kBlueViolet,
                       fontSize: 22,
