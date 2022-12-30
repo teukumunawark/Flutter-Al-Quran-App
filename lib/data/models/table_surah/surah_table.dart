@@ -1,5 +1,4 @@
 import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart';
 import 'package:equatable/equatable.dart';
 
 class SurahTable extends Equatable {
@@ -32,9 +31,12 @@ class SurahTable extends Equatable {
     };
   }
 
-  SurahEntities toEntity() {
-    return const SurahEntities();
-  }
+  // SurahEntities toEntity() {
+  //   return SurahEntities(
+  //     number: id,
+  //     name: name ,
+  //   );
+  // }
 
   @override
   List<Object?> get props => [

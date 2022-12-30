@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../../domain/entities/list_surah_entities/tafsir_id_entities.dart';
 
 class TafsirModel extends Equatable {
-  final String id;
+  final String? id;
 
   const TafsirModel({required this.id});
 

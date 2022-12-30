@@ -6,20 +6,20 @@ import 'name_model.dart';
 import 'revalation_model.dart';
 
 class SurahModel extends Equatable {
-  final int number;
-  final int sequence;
-  final int numberOfVerses;
-  final NameModel name;
-  final RevelationModel revelation;
-  final TafsirModel tafsir;
+  final int? number;
+  final int? sequence;
+  final int? numberOfVerses;
+  final NameModel? name;
+  final RevelationModel? revelation;
+  final TafsirModel? tafsir;
 
   const SurahModel({
-    required this.number,
-    required this.sequence,
-    required this.numberOfVerses,
-    required this.name,
-    required this.revelation,
-    required this.tafsir,
+    this.number,
+    this.sequence,
+    this.numberOfVerses,
+    this.name,
+    this.revelation,
+    this.tafsir,
   });
 
   factory SurahModel.fromJson(Map<String, dynamic> json) => SurahModel(
@@ -36,18 +36,18 @@ class SurahModel extends Equatable {
         'number': number,
         'sequence': sequence,
         'numberOfVerses': numberOfVerses,
-        'name': name.toJson(),
-        'revelation': revelation.toJson(),
-        'tafsir': tafsir.toJson(),
+        'name': name?.toJson(),
+        'revelation': revelation?.toJson(),
+        'tafsir': tafsir?.toJson(),
       };
 
   SurahEntities toEntity() => SurahEntities(
         number: number,
         sequence: sequence,
         numberOfVerses: numberOfVerses,
-        name: name.toEntity(),
-        revelation: revelation.toEntity(),
-        tafsir: tafsir.toEntity(),
+        name: name?.toEntity(),
+        revelation: revelation?.toEntity(),
+        tafsir: tafsir?.toEntity(),
       );
 
   @override

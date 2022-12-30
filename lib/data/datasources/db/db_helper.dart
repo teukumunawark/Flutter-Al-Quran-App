@@ -32,7 +32,6 @@ class QuranDatabaseHelper {
       CREATE TABLE $_tableBookmark (
         id INTEGER PRIMARY KEY,
         name TEXT,
-        number INTEGER,
       );
     ''');
   }
