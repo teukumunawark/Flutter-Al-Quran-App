@@ -21,6 +21,7 @@ dependencies:
   google_fonts: ^3.0.1
   http: ^0.13.3
   lottie: ^2.1.0
+  sqflite: ^2.2.2
 
 dev_dependencies:
   bloc_test: ^9.1.0
