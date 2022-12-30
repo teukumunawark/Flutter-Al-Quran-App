@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 class TafsirEntities extends Equatable {
-  final String id;
+  final String? id;
 
-  const TafsirEntities({required this.id});
+  const TafsirEntities({this.id});
 
   @override
-  List<Object> get props => [id];
+  List<Object?> get props => [id];
 }
