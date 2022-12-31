@@ -1,8 +1,11 @@
 import 'package:al_quran_app/common/constants.dart';
 import 'package:al_quran_app/presentation/pages/para_page.dart';
 import 'package:al_quran_app/presentation/pages/surah_page.dart';
+import 'package:al_quran_app/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../widgets/custom_botton_navbar.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/home';
@@ -12,31 +15,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    PreferredSizeWidget appBar() {
-      return AppBar(
-        elevation: 0,
-        toolbarHeight: size.height * 0.09,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            IconButton(
-              icon: SvgPicture.asset('assets/svg/menu-icon.svg'),
-              onPressed: () {},
-            ),
-            const SizedBox(width: 24),
-            Text(
-              "Quran App",
-              style: kHeading5.copyWith(color: kBlueViolet),
-            ),
-            const Spacer(),
-            IconButton(
-              icon: SvgPicture.asset('assets/svg/search-icon.svg'),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      );
-    }
 
     Widget textHeader() => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,42 +153,8 @@ class HomePage extends StatelessWidget {
           ),
         );
 
-    bottomNavigationBarItem({required iconPath, required label}) =>
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            iconPath,
-            color: kOsloGrey,
-          ),
-          label: label,
-          activeIcon: SvgPicture.asset(
-            iconPath,
-            color: kBlueViolet,
-          ),
-        );
-
-    bottomNavigationBar() => BottomNavigationBar(
-          showSelectedLabels: false,
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: false,
-          backgroundColor: kWhite,
-          items: [
-            bottomNavigationBarItem(
-              iconPath: "assets/svg/quran-icon.svg",
-              label: "quran",
-            ),
-            bottomNavigationBarItem(
-              iconPath: "assets/svg/pray-icon.svg",
-              label: "quran",
-            ),
-            bottomNavigationBarItem(
-              iconPath: "assets/svg/bookmark-icon.svg",
-              label: "quran",
-            ),
-          ],
-        );
-
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(context),
       body: body(),
       bottomNavigationBar: bottomNavigationBar(),
     );
