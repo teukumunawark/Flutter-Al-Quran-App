@@ -80,7 +80,7 @@ class OnBoardingPage extends StatelessWidget {
                               ),
                             ),
                             onTap: () {
-                              context.goNamed('home');
+                              context.pushNamed('home');
                             },
                           ),
                         ),
