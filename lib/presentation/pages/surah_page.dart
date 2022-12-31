@@ -1,10 +1,10 @@
 import 'package:al_quran_app/common/constants.dart';
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
-import 'package:al_quran_app/presentation/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SurahPage extends StatelessWidget {
@@ -114,11 +114,9 @@ class BuildSurahList extends StatelessWidget {
             ],
           ),
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              DetailPage.routeName,
-              arguments: surah.number,
-            );
+            context.pushNamed('detail', params: {
+              'id': surah.number.toString(),
+            });
           },
         );
       },
