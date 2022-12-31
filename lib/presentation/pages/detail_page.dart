@@ -4,13 +4,12 @@ import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/loading_animation.dart';
 
 class DetailPage extends StatefulWidget {
-  static const routeName = '/detail-page';
-
   final int id;
 
   const DetailPage({super.key, required this.id});
@@ -72,7 +71,7 @@ class BuildDetail extends StatelessWidget {
               IconButton(
                 icon: SvgPicture.asset('assets/svg/back-arrow-icon.svg'),
                 onPressed: () {
-                  Navigator.pop(context);
+                  context.pop();
                 },
               ),
               const SizedBox(width: 24),
