@@ -1,16 +1,14 @@
 import 'dart:async';
 
-import 'package:al_quran_app/presentation/pages/on_boarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../common/constants.dart';
 import '../bloc/quran_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const routeName = '/';
-
   const SplashScreen({super.key});
 
   @override
@@ -29,14 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startSplashScreen() async {
     return Future.delayed(
-      const Duration(seconds: 5),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnBoardingPage(),
-        ),
-      ),
-    );
+        const Duration(seconds: 5), () => context.goNamed('onboard'));
   }
 
   @override

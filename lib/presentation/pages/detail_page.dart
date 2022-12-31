@@ -4,13 +4,14 @@ import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/custom_app_bar.dart';
+import '../widgets/error_message.dart';
 import '../widgets/loading_animation.dart';
 
 class DetailPage extends StatefulWidget {
-  static const routeName = '/detail-page';
-
   final int id;
 
   const DetailPage({super.key, required this.id});
@@ -38,18 +39,9 @@ class _DetailPageState extends State<DetailPage> {
           } else if (state is DetailSurahHasData) {
             return BuildDetail(state.detailSurah);
           } else if (state is SurahError) {
-            return Center(
-                child: Text(
-              state.message,
-              style: kHeading6.copyWith(color: kBlueViolet),
-            ));
+            return ErrorMessage(message: state.message);
           } else {
-            return Center(
-              child: Text(
-                "Failed",
-                style: kHeading6.copyWith(color: kBlueViolet),
-              ),
-            );
+            return const ErrorMessage(message: "Failed");
           }
         },
       ),
@@ -62,33 +54,6 @@ class BuildDetail extends StatelessWidget {
   const BuildDetail(this.surah, {super.key});
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    PreferredSizeWidget appBar() => AppBar(
-          elevation: 0,
-          toolbarHeight: size.height * 0.09,
-          automaticallyImplyLeading: false,
-          title: Row(
-            children: [
-              IconButton(
-                icon: SvgPicture.asset('assets/svg/back-arrow-icon.svg'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const SizedBox(width: 24),
-              Text(
-                surah.name?.transliteration?.id as String,
-                style: kHeading5.copyWith(color: kBlueViolet),
-              ),
-              const Spacer(),
-              IconButton(
-                icon: SvgPicture.asset('assets/svg/search-icon.svg'),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        );
-
     Widget buildCard() => Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 30),
           child: Container(
@@ -251,7 +216,12 @@ class BuildDetail extends StatelessWidget {
         );
 
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(
+        context,
+        title: surah.name?.transliteration?.id,
+        iconPath: 'assets/svg/back-arrow-icon.svg',
+        onPressed: () => context.pop(),
+      ),
       body: body(),
     );
   }

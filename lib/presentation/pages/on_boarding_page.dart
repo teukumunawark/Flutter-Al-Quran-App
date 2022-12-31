@@ -1,12 +1,10 @@
 import 'package:al_quran_app/common/constants.dart';
-import 'package:al_quran_app/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBoardingPage extends StatelessWidget {
-  static const routeName = '/onboard-page';
-
   const OnBoardingPage({super.key});
 
   @override
@@ -82,7 +80,7 @@ class OnBoardingPage extends StatelessWidget {
                               ),
                             ),
                             onTap: () {
-                              Navigator.pushNamed(context, HomePage.routeName);
+                              context.pushNamed('home');
                             },
                           ),
                         ),
