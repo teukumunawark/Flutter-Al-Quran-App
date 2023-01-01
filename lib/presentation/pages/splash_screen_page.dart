@@ -20,7 +20,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<SurahListBloc>().add(OnQuranList());
+      context.read<SurahListBloc>().add(OnSurahList());
+      context.read<JuzListBloc>().add(OnJuzList());
     });
     startSplashScreen();
   }

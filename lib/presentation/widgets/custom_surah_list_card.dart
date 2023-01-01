@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../common/constants.dart';
 import '../../domain/entities/list_surah_entities/surah_entities.dart';
 
-class ListCard extends StatelessWidget {
-  const ListCard(this.surah, {super.key});
+class SurahListCard extends StatelessWidget {
+  const SurahListCard(this.surah, {super.key});
 
   final SurahEntities surah;
 

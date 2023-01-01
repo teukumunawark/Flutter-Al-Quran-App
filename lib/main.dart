@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => injection.locator<SurahListBloc>()),
-        BlocProvider(create: (_) => injection.locator<DetailSurahBloc>())
+        BlocProvider(create: (_) => injection.locator<JuzListBloc>()),
+        BlocProvider(create: (_) => injection.locator<DetailSurahBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

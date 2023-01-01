@@ -1,15 +1,17 @@
 part of 'quran_bloc.dart';
 
-abstract class SurahEvent extends Equatable {
-  const SurahEvent();
+abstract class QuranEvent extends Equatable {
+  const QuranEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class OnQuranList extends SurahEvent {}
+class OnSurahList extends QuranEvent {}
 
-class OnDetailSurah extends SurahEvent {
+class OnJuzList extends QuranEvent {}
+
+class OnDetailSurah extends QuranEvent {
   final int id;
 
   const OnDetailSurah(this.id);

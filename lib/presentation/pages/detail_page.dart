@@ -32,9 +32,9 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<DetailSurahBloc, SurahState>(
+      body: BlocBuilder<DetailSurahBloc, QuranState>(
         builder: (context, state) {
-          if (state is SurahLoading) {
+          if (state is QuranLoading) {
             return const BuildAnimationLoading();
           } else if (state is DetailSurahHasData) {
             return BuildDetail(state.detailSurah);

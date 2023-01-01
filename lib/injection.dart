@@ -1,6 +1,7 @@
 import 'package:al_quran_app/data/datasources/quran_data_source.dart';
 import 'package:al_quran_app/domain/repositories/quran_repository.dart';
 import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
+import 'package:al_quran_app/domain/usecases/get_juz_list.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -15,12 +16,19 @@ void init() {
   locator.registerFactory(() => SurahListBloc(
         locator(),
       ));
+  locator.registerFactory(() => JuzListBloc(
+        locator(),
+      ));
   locator.registerFactory(() => DetailSurahBloc(
         locator(),
       ));
 
   // Use Case
   locator.registerLazySingleton(() => GetSurahList(
+        locator(),
+      ));
+
+  locator.registerLazySingleton(() => GetJuzList(
         locator(),
       ));
 

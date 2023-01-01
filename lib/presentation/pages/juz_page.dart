@@ -1,21 +1,23 @@
-import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart';
+import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
-import 'package:al_quran_app/presentation/widgets/custom_surah_list_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SurahPage extends StatelessWidget {
-  const SurahPage({super.key});
+import '../widgets/custom_juz_list_card.dart';
+
+class JuzPage extends StatelessWidget {
+  const JuzPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<SurahListBloc, QuranState>(
+      body: BlocBuilder<JuzListBloc, QuranState>(
         builder: (context, state) {
           if (state is QuranLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is SurahHasData) {
-            return BuildSurahList(state.surahList);
+          } else if (state is JuzHasData) {
+            print(state.juzList);
+            return BuildJuzList(state.juzList);
           } else if (state is SurahError) {
             return Center(child: Text(state.message));
           } else {
@@ -27,21 +29,21 @@ class SurahPage extends StatelessWidget {
   }
 }
 
-class BuildSurahList extends StatelessWidget {
-  final List<SurahEntities> listSurah;
+class BuildJuzList extends StatelessWidget {
+  final List<JuzEntities> juzList;
 
-  const BuildSurahList(this.listSurah, {Key? key}) : super(key: key);
+  const BuildJuzList(this.juzList, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: listSurah.length,
+      itemCount: juzList.length,
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        final surah = listSurah[index];
+        final juz = juzList[index];
 
-        return SurahListCard(surah);
+        return JuzListCard(juz);
       },
     );
   }
