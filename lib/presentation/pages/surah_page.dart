@@ -1,6 +1,6 @@
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
-import 'package:al_quran_app/presentation/widgets/custom_list_card.dart';
+import 'package:al_quran_app/presentation/widgets/custom_surah_list_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,12 +10,12 @@ class SurahPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<SurahListBloc, SurahState>(
+      body: BlocBuilder<SurahListBloc, QuranState>(
         builder: (context, state) {
-          if (state is SurahLoading) {
+          if (state is QuranLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is SurahHasData) {
-            return BuildSurahList(state.listQuran);
+            return BuildSurahList(state.surahList);
           } else if (state is SurahError) {
             return Center(child: Text(state.message));
           } else {
@@ -41,7 +41,7 @@ class BuildSurahList extends StatelessWidget {
       itemBuilder: (context, index) {
         final surah = listSurah[index];
 
-        return ListCard(surah);
+        return SurahListCard(surah);
       },
     );
   }

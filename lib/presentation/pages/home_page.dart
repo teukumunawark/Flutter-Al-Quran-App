@@ -1,5 +1,5 @@
 import 'package:al_quran_app/common/constants.dart';
-import 'package:al_quran_app/presentation/pages/para_page.dart';
+import 'package:al_quran_app/presentation/pages/juz_page.dart';
 import 'package:al_quran_app/presentation/pages/surah_page.dart';
 import 'package:al_quran_app/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
