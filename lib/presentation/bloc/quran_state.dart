@@ -1,17 +1,17 @@
 part of 'quran_bloc.dart';
 
-abstract class SurahState extends Equatable {
-  const SurahState();
+abstract class QuranState extends Equatable {
+  const QuranState();
 
   @override
   List<Object> get props => [];
 }
 
-class SurahEmpty extends SurahState {}
+class SurahEmpty extends QuranState {}
 
-class SurahLoading extends SurahState {}
+class QuranLoading extends QuranState {}
 
-class SurahError extends SurahState {
+class SurahError extends QuranState {
   final String message;
 
   const SurahError(this.message);
@@ -20,16 +20,25 @@ class SurahError extends SurahState {
   List<Object> get props => [message];
 }
 
-class SurahHasData extends SurahState {
-  final List<SurahEntities> listQuran;
+class SurahHasData extends QuranState {
+  final List<SurahEntities> surahList;
 
-  const SurahHasData(this.listQuran);
+  const SurahHasData(this.surahList);
 
   @override
-  List<Object> get props => [listQuran];
+  List<Object> get props => [surahList];
 }
 
-class DetailSurahHasData extends SurahState {
+class JuzHasData extends QuranState {
+  final List<JuzEntities> juzList;
+
+  const JuzHasData(this.juzList);
+
+  @override
+  List<Object> get props => [juzList];
+}
+
+class DetailSurahHasData extends QuranState {
   final DetailSurahEntities detailSurah;
 
   const DetailSurahHasData(this.detailSurah);
