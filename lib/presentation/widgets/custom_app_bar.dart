@@ -20,7 +20,7 @@ PreferredSizeWidget appBar(
           icon: SvgPicture.asset(iconPath.toString()),
           onPressed: onPressed,
         ),
-        const SizedBox(width: 24),
+        const SizedBox(width: 10),
         Text(
           title.toString(),
           style: kHeading5.copyWith(color: kBlueViolet),

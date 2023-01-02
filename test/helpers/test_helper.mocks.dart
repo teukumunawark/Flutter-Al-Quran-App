@@ -9,7 +9,7 @@ import 'dart:typed_data' as _i13;
 
 import 'package:al_quran_app/common/failure.dart' as _i7;
 import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i10;
-import 'package:al_quran_app/data/models/detail_surah/detail_surah_model.dart'
+import 'package:al_quran_app/data/models/detail_surah_model/detail_surah_model.dart'
     as _i3;
 import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart'
     as _i11;
