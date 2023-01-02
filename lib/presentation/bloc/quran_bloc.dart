@@ -1,5 +1,7 @@
+import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart';
 import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
 import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart';
+import 'package:al_quran_app/domain/usecases/get_detail_juz.dart';
 import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
 import 'package:al_quran_app/domain/usecases/get_juz_list.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
@@ -47,13 +49,27 @@ class DetailSurahBloc extends Bloc<QuranEvent, QuranState> {
   DetailSurahBloc(this._getDetailSurah) : super(QuranLoading()) {
     on<OnDetailSurah>((event, emit) async {
       final id = event.id;
-
       emit(QuranLoading());
-
       final result = await _getDetailSurah.execute(id);
       result.fold(
         (failure) => emit(SurahError(failure.message)),
         (data) => emit(DetailSurahHasData(data)),
+      );
+    });
+  }
+}
+
+class DetailJuzBloc extends Bloc<QuranEvent, QuranState> {
+  final GetDetailJuz _getDetailJuz;
+
+  DetailJuzBloc(this._getDetailJuz) : super(QuranLoading()) {
+    on<OnDetailJuz>((event, emit) async {
+      final id = event.id;
+      emit(QuranLoading());
+      final result = await _getDetailJuz.execute(id);
+      result.fold(
+        (failure) => emit(SurahError(failure.message)),
+        (data) => emit(DetailJuzHasData(data)),
       );
     });
   }
