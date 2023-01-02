@@ -1,4 +1,5 @@
-import 'package:al_quran_app/presentation/pages/detail_page.dart';
+import 'package:al_quran_app/presentation/pages/detail_juz_page.dart';
+import 'package:al_quran_app/presentation/pages/detail_surah_page.dart';
 import 'package:al_quran_app/presentation/pages/home_page.dart';
 import 'package:al_quran_app/presentation/pages/on_boarding_page.dart';
 import 'package:al_quran_app/presentation/pages/splash_screen_page.dart';
@@ -66,13 +67,35 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      name: 'detail',
-      path: '/detail/:id',
+      name: 'detail-surah',
+      path: '/detail-surah/:id',
       pageBuilder: (context, state) {
-        int id = int.parse(state.params['id']!);
+        String id = int.parse(state.params['id']!).toString();
         return CustomTransitionPage(
           key: state.pageKey,
-          child: DetailPage(id: id),
+          child: DetailSurahPage(id: id),
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) {
+            return FadeTransition(
+              opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      name: 'detail-juz',
+      path: '/detail-juz/:id',
+      pageBuilder: (context, state) {
+        String id = int.parse(state.params['id']!).toString();
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: DetailJuzPage(id: id),
           transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,
