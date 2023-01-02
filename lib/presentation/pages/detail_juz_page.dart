@@ -1,43 +1,43 @@
-import 'package:al_quran_app/common/constants.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
-import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
+import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../common/constants.dart';
+import '../bloc/quran_bloc.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/error_message.dart';
 import '../widgets/loading_animation.dart';
 
-class DetailPage extends StatefulWidget {
-  final int id;
+class DetailJuzPage extends StatefulWidget {
+  final String id;
 
-  const DetailPage({super.key, required this.id});
+  const DetailJuzPage({super.key, required this.id});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailJuzPage> createState() => _DetailJuzPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailJuzPageState extends State<DetailJuzPage> {
   @override
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<DetailSurahBloc>().add(OnDetailSurah(widget.id));
+      context.read<DetailJuzBloc>().add(OnDetailJuz(widget.id));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<DetailSurahBloc, QuranState>(
+      body: BlocBuilder<DetailJuzBloc, QuranState>(
         builder: (context, state) {
           if (state is QuranLoading) {
             return const BuildAnimationLoading();
-          } else if (state is DetailSurahHasData) {
-            return BuildDetail(state.detailSurah);
+          } else if (state is DetailJuzHasData) {
+            return BuildDetail(state.detailJuz);
           } else if (state is SurahError) {
             return ErrorMessage(message: state.message);
           } else {
@@ -50,8 +50,8 @@ class _DetailPageState extends State<DetailPage> {
 }
 
 class BuildDetail extends StatelessWidget {
-  final DetailSurahEntities surah;
-  const BuildDetail(this.surah, {super.key});
+  final DetailJuzEntities juz;
+  const BuildDetail(this.juz, {super.key});
   @override
   Widget build(BuildContext context) {
     Widget buildCard() => Padding(
@@ -83,13 +83,15 @@ class BuildDetail extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          surah.name?.transliteration?.id as String,
-                          style: kHeading5.copyWith(fontSize: 28),
+                          "SURAH",
+                          style: kHeading5.copyWith(fontSize: 22),
                         ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 4),
                         Text(
-                          surah.name?.translation?.id as String,
-                          style: kHeading5.copyWith(fontSize: 18),
+                          "Surah(${juz.juzStartSurahNumber})  -  Surah(${juz.juzEndSurahNumber})",
+                          style: kHeading5.copyWith(
+                            fontSize: 14,
+                          ),
                         ),
                         const SizedBox(height: 2),
                         Divider(
@@ -104,8 +106,8 @@ class BuildDetail extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${surah.revelation!.id}(${surah.revelation!.arab})",
-                              style: kHeading5.copyWith(fontSize: 16),
+                              juz.juzStartInfo.toString().split(' ')[0],
+                              style: kHeading5.copyWith(fontSize: 20),
                             ),
                             const SizedBox(width: 8),
                             const CircleAvatar(
@@ -114,8 +116,8 @@ class BuildDetail extends StatelessWidget {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              "${surah.numberOfVerses} ayat",
-                              style: kHeading5.copyWith(fontSize: 16),
+                              " ${juz.juzEndInfo.toString().split(' ')[0]}",
+                              style: kHeading5.copyWith(fontSize: 20),
                             ),
                           ],
                         ),
@@ -132,9 +134,9 @@ class BuildDetail extends StatelessWidget {
 
     Widget buildListAyat() => ListView.builder(
           physics: const BouncingScrollPhysics(),
-          itemCount: surah.verses!.length,
+          itemCount: juz.verses!.length,
           itemBuilder: (context, index) {
-            final verse = surah.verses![index];
+            final verse = juz.verses![index];
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -218,7 +220,7 @@ class BuildDetail extends StatelessWidget {
     return Scaffold(
       appBar: appBar(
         context,
-        title: surah.name?.transliteration?.id,
+        title: "Juz ${juz.juz}",
         iconPath: 'assets/svg/back-arrow-icon.svg',
         onPressed: () => context.pop(),
       ),

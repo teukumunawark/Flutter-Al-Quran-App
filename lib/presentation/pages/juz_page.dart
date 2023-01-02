@@ -16,7 +16,6 @@ class JuzPage extends StatelessWidget {
           if (state is QuranLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is JuzHasData) {
-            print(state.juzList);
             return BuildJuzList(state.juzList);
           } else if (state is SurahError) {
             return Center(child: Text(state.message));

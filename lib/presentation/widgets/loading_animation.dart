@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../common/constants.dart';
 
@@ -16,10 +15,8 @@ class BuildAnimationLoading extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Lottie.asset('assets/lottie/quran.json'),
-          const SizedBox(height: 50),
-          const Center(
+        children: const [
+          Center(
             child: CircularProgressIndicator(
               color: kBlueViolet,
             ),

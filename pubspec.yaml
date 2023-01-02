@@ -39,3 +39,5 @@ flutter:
     - assets/svg/
     - assets/lottie/
     - assets/data/
+    - assets/data/detail-juz/
+    - assets/data/detail-surah/

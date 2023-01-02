@@ -87,8 +87,8 @@ class JuzListCard extends StatelessWidget {
         ],
       ),
       onTap: () {
-        context.pushNamed('detail', params: {
-          // 'id': juz.number.toString(),
+        context.pushNamed('detail-juz', params: {
+          'id': juz.juz.toString(),
         });
       },
     );

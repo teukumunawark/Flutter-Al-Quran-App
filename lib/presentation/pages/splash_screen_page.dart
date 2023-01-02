@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startSplashScreen() async {
     return Future.delayed(
-        const Duration(seconds: 5), () => context.goNamed('onboard'));
+        const Duration(seconds: 3), () => context.goNamed('onboard'));
   }
 
   @override

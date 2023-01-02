@@ -12,9 +12,18 @@ class OnSurahList extends QuranEvent {}
 class OnJuzList extends QuranEvent {}
 
 class OnDetailSurah extends QuranEvent {
-  final int id;
+  final String id;
 
   const OnDetailSurah(this.id);
+
+  @override
+  List<Object> get props => [id];
+}
+
+class OnDetailJuz extends QuranEvent {
+  final String id;
+
+  const OnDetailJuz(this.id);
 
   @override
   List<Object> get props => [id];

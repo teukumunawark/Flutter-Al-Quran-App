@@ -1,4 +1,4 @@
-import 'package:al_quran_app/data/models/detail_surah/id_model.dart';
+import 'package:al_quran_app/data/models/detail_surah_model/id_model.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../domain/entities/detail_surah_entities/id_entities.dart';

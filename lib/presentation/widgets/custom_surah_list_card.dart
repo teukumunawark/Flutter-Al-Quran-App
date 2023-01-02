@@ -82,7 +82,7 @@ class SurahListCard extends StatelessWidget {
         ],
       ),
       onTap: () {
-        context.pushNamed('detail', params: {
+        context.pushNamed('detail-surah', params: {
           'id': surah.number.toString(),
         });
       },

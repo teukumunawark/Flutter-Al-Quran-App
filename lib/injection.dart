@@ -1,5 +1,6 @@
 import 'package:al_quran_app/data/datasources/quran_data_source.dart';
 import 'package:al_quran_app/domain/repositories/quran_repository.dart';
+import 'package:al_quran_app/domain/usecases/get_detail_juz.dart';
 import 'package:al_quran_app/domain/usecases/get_detail_surah.dart';
 import 'package:al_quran_app/domain/usecases/get_juz_list.dart';
 import 'package:al_quran_app/domain/usecases/get_surah_list.dart';
@@ -12,7 +13,7 @@ import 'data/repositories/quran_repositories_impl.dart';
 final locator = GetIt.instance;
 
 void init() {
-  // Bloc
+  // BLOC
   locator.registerFactory(() => SurahListBloc(
         locator(),
       ));
@@ -22,8 +23,11 @@ void init() {
   locator.registerFactory(() => DetailSurahBloc(
         locator(),
       ));
+  locator.registerFactory(() => DetailJuzBloc(
+        locator(),
+      ));
 
-  // Use Case
+  // USE CASE
   locator.registerLazySingleton(() => GetSurahList(
         locator(),
       ));
@@ -35,17 +39,19 @@ void init() {
   locator.registerLazySingleton(() => GetDetailSurah(
         locator(),
       ));
+  locator.registerLazySingleton(() => GetDetailJuz(
+        locator(),
+      ));
 
-  // Repository
+  // REPOSITORY
   locator.registerLazySingleton<SurahRepository>(
     () => SurahRepositoryImpl(remoteDataSource: locator()),
   );
-  // Data Source
+  // DATA SOURCE
   locator.registerLazySingleton<SurahRemoteDataSource>(
-    () => SurahRemoteDataSourceImpl(client: locator()),
+    () => SurahRemoteDataSourceImpl(),
   );
-  // Helper
 
-  // External
+  // EXTERNAL
   locator.registerLazySingleton(() => http.Client());
 }

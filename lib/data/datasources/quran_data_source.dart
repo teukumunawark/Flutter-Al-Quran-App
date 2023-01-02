@@ -1,25 +1,24 @@
 import 'dart:convert';
 
 import 'package:al_quran_app/common/exception.dart';
+import 'package:al_quran_app/data/models/detail_juz_model/detail_juz_model.dart';
 import 'package:al_quran_app/data/models/juz_response.dart';
 import 'package:al_quran_app/data/models/list_juz_models/juz_model.dart';
 import 'package:al_quran_app/data/models/surah_response.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 
-import '../models/detail_surah/detail_surah_model.dart';
+import '../models/detail_surah_model/detail_surah_model.dart';
 import '../models/list_surah_models/surah_model.dart';
 
 abstract class SurahRemoteDataSource {
   Future<List<SurahModel>> readListSurah();
   Future<List<JuzModel>> readListJuz();
-  Future<DetailSurah> getDetailSurah(int id);
+  Future<DetailSurah> readDetailSurah(String id);
+  Future<DetailJuz> readDetailJuz(String id);
 }
 
 class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
-  static const baseURL = 'https://api.quran.gading.dev';
-  final http.Client client;
-  SurahRemoteDataSourceImpl({required this.client});
+  SurahRemoteDataSourceImpl();
 
   // if you want to hit endpoint for get list surah you can use this function
   // ========================================================================
@@ -33,26 +32,57 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   //   }
   // }
 
+  // @override
+  // Future<DetailSurah> getDetailSurah(int id) async {
+  //   final response = await client.get(Uri.parse('$baseURL/surah/$id'));
+  //   if (response.statusCode == 200) {
+  //     return DetailSurah.fromJson(json.decode(response.body)['data']);
+  //   } else {
+  //     throw ServerException();
+  //   }
+  // }
+
   @override
-  Future<DetailSurah> getDetailSurah(int id) async {
-    final response = await client.get(Uri.parse('$baseURL/surah/$id'));
-    if (response.statusCode == 200) {
-      return DetailSurah.fromJson(json.decode(response.body)['data']);
-    } else {
+  Future<List<SurahModel>> readListSurah() async {
+    try {
+      final response = await rootBundle.loadString('assets/data/surah.json');
+      return SurahResponse.fromJson(json.decode(response)).surahList;
+    } catch (e) {
       throw ServerException();
     }
   }
 
   @override
-  Future<List<SurahModel>> readListSurah() async {
-    final response = await rootBundle.loadString('assets/data/surah.json');
-    return SurahResponse.fromJson(json.decode(response)).surahList;
+  Future<List<JuzModel>> readListJuz() async {
+    try {
+      final response = await rootBundle.loadString('assets/data/juz.json');
+      return JuzResponse.fromJson(json.decode(response)).listJuz;
+    } catch (e) {
+      throw ServerException();
+    }
   }
 
   @override
-  Future<List<JuzModel>> readListJuz() async {
-    final response = await rootBundle.loadString('assets/data/juz.json');
-    print(response);
-    return JuzResponse.fromJson(json.decode(response)).listJuz;
+  Future<DetailJuz> readDetailJuz(String id) async {
+    try {
+      final response = await rootBundle.loadString(
+        'assets/data/detail-juz/$id.json',
+      );
+      return DetailJuz.fromJson(json.decode(response)['data']);
+    } catch (e) {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<DetailSurah> readDetailSurah(String id) async {
+    try {
+      final response = await rootBundle.loadString(
+        'assets/data/detail-surah/$id.json',
+      );
+      return DetailSurah.fromJson(json.decode(response)['data']);
+    } catch (e) {
+      throw ServerException();
+    }
   }
 }

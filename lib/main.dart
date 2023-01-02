@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'common/constants.dart';
 import 'presentation/bloc/quran_bloc.dart';
-import 'injection.dart' as injection;
 import 'presentation/routes/app_routes.dart';
+import 'package:flutter/material.dart';
+import 'common/constants.dart';
+import 'injection.dart' as injection;
 
 void main() {
   injection.init();
@@ -17,9 +17,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => injection.locator<SurahListBloc>()),
-        BlocProvider(create: (_) => injection.locator<JuzListBloc>()),
-        BlocProvider(create: (_) => injection.locator<DetailSurahBloc>()),
+        BlocProvider(
+          create: (_) => injection.locator<SurahListBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => injection.locator<JuzListBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => injection.locator<DetailSurahBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => injection.locator<DetailJuzBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

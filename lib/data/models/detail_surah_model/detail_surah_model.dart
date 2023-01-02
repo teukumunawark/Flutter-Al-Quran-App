@@ -74,9 +74,6 @@ class DetailSurah extends Equatable {
       );
 
   @override
-  bool get stringify => true;
-
-  @override
   List<Object?> get props {
     return [
       number,
