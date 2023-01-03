@@ -1,6 +1,7 @@
 import 'package:al_quran_app/presentation/pages/detail_juz_page.dart';
 import 'package:al_quran_app/presentation/pages/detail_surah_page.dart';
 import 'package:al_quran_app/presentation/pages/home_page.dart';
+import 'package:al_quran_app/presentation/pages/main_page.dart';
 import 'package:al_quran_app/presentation/pages/on_boarding_page.dart';
 import 'package:al_quran_app/presentation/pages/splash_screen_page.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,26 @@ final router = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const OnBoardingPage(),
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
+          return FadeTransition(
+            opacity: CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+            child: child,
+          );
+        },
+      ),
+    ),
+    GoRoute(
+      name: 'main',
+      path: '/main',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const MainPage(),
+        transitionDuration: const Duration(milliseconds: 150),
         transitionsBuilder: (
           BuildContext context,
           Animation<double> animation,

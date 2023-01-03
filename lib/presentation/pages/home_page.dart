@@ -1,11 +1,11 @@
 import 'package:al_quran_app/common/constants.dart';
+import 'package:al_quran_app/common/theme_bloc.dart';
 import 'package:al_quran_app/presentation/pages/juz_page.dart';
 import 'package:al_quran_app/presentation/pages/surah_page.dart';
 import 'package:al_quran_app/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../widgets/custom_botton_navbar.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/home';
@@ -25,7 +25,10 @@ class HomePage extends StatelessWidget {
             ),
             Text(
               "teuku munawar",
-              style: kHeading5.copyWith(color: kBlueViolet, fontSize: 24),
+              style: kHeading5.copyWith(
+                color: context.watch<ThemeBloc>().state ? kWhite : kBlueViolet,
+                fontSize: 24,
+              ),
             ),
           ],
         );
@@ -87,7 +90,7 @@ class HomePage extends StatelessWidget {
     Widget body() => DefaultTabController(
           length: 2,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: NestedScrollView(
               physics: const BouncingScrollPhysics(),
               headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -102,7 +105,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   SliverAppBar(
-                    backgroundColor: kWhite,
                     pinned: true,
                     elevation: 0,
                     automaticallyImplyLeading: false,
@@ -116,7 +118,9 @@ class HomePage extends StatelessWidget {
                       preferredSize: const Size.fromHeight(0),
                       child: TabBar(
                         unselectedLabelColor: kOsloGrey,
-                        labelColor: kMeteorite,
+                        labelColor: context.watch<ThemeBloc>().state
+                            ? kWhite
+                            : kMeteorite,
                         indicatorColor: kBlueViolet,
                         indicatorWeight: 3,
                         tabs: [
@@ -156,7 +160,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: appBar(context),
       body: body(),
-      bottomNavigationBar: bottomNavigationBar(),
     );
   }
 }

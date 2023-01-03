@@ -1,9 +1,7 @@
-import 'dart:io';
-import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart';
 import 'package:dartz/dartz.dart';
-
 import '../../common/failure.dart';
 import '../../common/exception.dart';
+import '../../domain/entities/detail_juz_entities/detail_juz_entities.dart';
 import '../datasources/quran_data_source.dart';
 import '../../domain/repositories/quran_repository.dart';
 import '../../domain/entities/list_juz_entities/juz_entities.dart';
@@ -52,8 +50,6 @@ class SurahRepositoryImpl implements SurahRepository {
       return Right(result.toEntity());
     } on ServerException {
       return Left(ServerFailure(''));
-    } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
 }
