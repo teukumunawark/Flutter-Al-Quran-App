@@ -1,4 +1,5 @@
 import 'package:al_quran_app/common/constants.dart';
+import 'package:al_quran_app/common/theme_bloc.dart';
 import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:flutter/material.dart';
@@ -142,7 +143,8 @@ class BuildDetail extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   height: 48,
                   decoration: BoxDecoration(
-                    color: kGrey,
+                    color:
+                        context.watch<ThemeBloc>().state ? kSecondDark : kGrey,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
@@ -172,7 +174,7 @@ class BuildDetail extends StatelessWidget {
                   child: Text(
                     verse.text!.arab.toString(),
                     style: GoogleFonts.amiri(
-                      color: kBlack,
+                      color: context.watch<ThemeBloc>().state ? kWhite : kBlack,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
