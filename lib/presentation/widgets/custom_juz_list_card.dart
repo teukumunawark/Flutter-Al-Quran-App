@@ -1,8 +1,10 @@
 import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import '../../common/constants.dart';
+import '../../common/theme_bloc.dart';
 
 class JuzListCard extends StatelessWidget {
   const JuzListCard(this.juz, {super.key});
@@ -29,7 +31,9 @@ class JuzListCard extends StatelessWidget {
                       child: Text(
                         juz.juz.toString(),
                         style: kHeading6.copyWith(
-                          color: Colors.black,
+                          color: context.watch<ThemeBloc>().state
+                              ? kWhite
+                              : kBlack,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -46,7 +50,7 @@ class JuzListCard extends StatelessWidget {
                     'JUZ ${juz.juz}  ( ${juz.totalVerses} Ayat )',
                     style: kHeading5.copyWith(
                       fontSize: 16,
-                      color: kBlack,
+                      color: context.watch<ThemeBloc>().state ? kWhite : kBlack,
                     ),
                   ),
                   const SizedBox(height: 2),
