@@ -101,7 +101,7 @@ class MockGetDetailSurah extends _i1.Mock implements _i8.GetDetailSurah {
       ) as _i2.SurahRepository);
   @override
   _i5.Future<_i3.Either<_i6.Failure, _i9.DetailSurahEntities>> execute(
-          int? id) =>
+          String? id) =>
       (super.noSuchMethod(
         Invocation.method(
           #execute,

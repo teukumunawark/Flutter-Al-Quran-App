@@ -3,23 +3,31 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
-import 'dart:convert' as _i12;
-import 'dart:typed_data' as _i13;
+import 'dart:async' as _i7;
+import 'dart:convert' as _i16;
+import 'dart:typed_data' as _i17;
 
-import 'package:al_quran_app/common/failure.dart' as _i7;
-import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i10;
+import 'package:al_quran_app/common/failure.dart' as _i8;
+import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i13;
+import 'package:al_quran_app/data/models/detail_juz_model/detail_juz_model.dart'
+    as _i4;
 import 'package:al_quran_app/data/models/detail_surah_model/detail_surah_model.dart'
     as _i3;
+import 'package:al_quran_app/data/models/list_juz_models/juz_model.dart'
+    as _i15;
 import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart'
-    as _i11;
+    as _i14;
+import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart'
+    as _i12;
 import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart'
-    as _i9;
+    as _i11;
+import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart'
+    as _i10;
 import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
-    as _i8;
-import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i5;
+    as _i9;
+import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i6;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:http/http.dart' as _i4;
+import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -53,8 +61,8 @@ class _FakeDetailSurah_1 extends _i1.SmartFake implements _i3.DetailSurah {
         );
 }
 
-class _FakeResponse_2 extends _i1.SmartFake implements _i4.Response {
-  _FakeResponse_2(
+class _FakeDetailJuz_2 extends _i1.SmartFake implements _i4.DetailJuz {
+  _FakeDetailJuz_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -63,9 +71,19 @@ class _FakeResponse_2 extends _i1.SmartFake implements _i4.Response {
         );
 }
 
-class _FakeStreamedResponse_3 extends _i1.SmartFake
-    implements _i4.StreamedResponse {
-  _FakeStreamedResponse_3(
+class _FakeResponse_3 extends _i1.SmartFake implements _i5.Response {
+  _FakeResponse_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeStreamedResponse_4 extends _i1.SmartFake
+    implements _i5.StreamedResponse {
+  _FakeStreamedResponse_4(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -77,92 +95,150 @@ class _FakeStreamedResponse_3 extends _i1.SmartFake
 /// A class which mocks [SurahRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSurahRepository extends _i1.Mock implements _i5.SurahRepository {
+class MockSurahRepository extends _i1.Mock implements _i6.SurahRepository {
   MockSurahRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>> getListSurah() =>
+  _i7.Future<_i2.Either<_i8.Failure, List<_i9.SurahEntities>>> getListSurah() =>
       (super.noSuchMethod(
         Invocation.method(
           #getListSurah,
           [],
         ),
         returnValue:
-            _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>>.value(
-                _FakeEither_0<_i7.Failure, List<_i8.SurahEntities>>(
+            _i7.Future<_i2.Either<_i8.Failure, List<_i9.SurahEntities>>>.value(
+                _FakeEither_0<_i8.Failure, List<_i9.SurahEntities>>(
           this,
           Invocation.method(
             #getListSurah,
             [],
           ),
         )),
-      ) as _i6.Future<_i2.Either<_i7.Failure, List<_i8.SurahEntities>>>);
+      ) as _i7.Future<_i2.Either<_i8.Failure, List<_i9.SurahEntities>>>);
   @override
-  _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>> getDetailSurah(
-          int? id) =>
+  _i7.Future<_i2.Either<_i8.Failure, List<_i10.JuzEntities>>> getListJuz() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getListJuz,
+          [],
+        ),
+        returnValue:
+            _i7.Future<_i2.Either<_i8.Failure, List<_i10.JuzEntities>>>.value(
+                _FakeEither_0<_i8.Failure, List<_i10.JuzEntities>>(
+          this,
+          Invocation.method(
+            #getListJuz,
+            [],
+          ),
+        )),
+      ) as _i7.Future<_i2.Either<_i8.Failure, List<_i10.JuzEntities>>>);
+  @override
+  _i7.Future<_i2.Either<_i8.Failure, _i11.DetailSurahEntities>> getDetailSurah(
+          String? id) =>
       (super.noSuchMethod(
         Invocation.method(
           #getDetailSurah,
           [id],
         ),
         returnValue:
-            _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>>.value(
-                _FakeEither_0<_i7.Failure, _i9.DetailSurahEntities>(
+            _i7.Future<_i2.Either<_i8.Failure, _i11.DetailSurahEntities>>.value(
+                _FakeEither_0<_i8.Failure, _i11.DetailSurahEntities>(
           this,
           Invocation.method(
             #getDetailSurah,
             [id],
           ),
         )),
-      ) as _i6.Future<_i2.Either<_i7.Failure, _i9.DetailSurahEntities>>);
+      ) as _i7.Future<_i2.Either<_i8.Failure, _i11.DetailSurahEntities>>);
+  @override
+  _i7.Future<_i2.Either<_i8.Failure, _i12.DetailJuzEntities>> getDetailJuz(
+          String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDetailJuz,
+          [id],
+        ),
+        returnValue:
+            _i7.Future<_i2.Either<_i8.Failure, _i12.DetailJuzEntities>>.value(
+                _FakeEither_0<_i8.Failure, _i12.DetailJuzEntities>(
+          this,
+          Invocation.method(
+            #getDetailJuz,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i2.Either<_i8.Failure, _i12.DetailJuzEntities>>);
 }
 
 /// A class which mocks [SurahRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSurahRemoteDataSource extends _i1.Mock
-    implements _i10.SurahRemoteDataSource {
+    implements _i13.SurahRemoteDataSource {
   MockSurahRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<List<_i11.SurahModel>> getListSurah() => (super.noSuchMethod(
+  _i7.Future<List<_i14.SurahModel>> readListSurah() => (super.noSuchMethod(
         Invocation.method(
-          #getListSurah,
+          #readListSurah,
           [],
         ),
         returnValue:
-            _i6.Future<List<_i11.SurahModel>>.value(<_i11.SurahModel>[]),
-      ) as _i6.Future<List<_i11.SurahModel>>);
+            _i7.Future<List<_i14.SurahModel>>.value(<_i14.SurahModel>[]),
+      ) as _i7.Future<List<_i14.SurahModel>>);
   @override
-  _i6.Future<_i3.DetailSurah> getDetailSurah(int? id) => (super.noSuchMethod(
+  _i7.Future<List<_i15.JuzModel>> readListJuz() => (super.noSuchMethod(
         Invocation.method(
-          #getDetailSurah,
+          #readListJuz,
+          [],
+        ),
+        returnValue: _i7.Future<List<_i15.JuzModel>>.value(<_i15.JuzModel>[]),
+      ) as _i7.Future<List<_i15.JuzModel>>);
+  @override
+  _i7.Future<_i3.DetailSurah> readDetailSurah(String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #readDetailSurah,
           [id],
         ),
-        returnValue: _i6.Future<_i3.DetailSurah>.value(_FakeDetailSurah_1(
+        returnValue: _i7.Future<_i3.DetailSurah>.value(_FakeDetailSurah_1(
           this,
           Invocation.method(
-            #getDetailSurah,
+            #readDetailSurah,
             [id],
           ),
         )),
-      ) as _i6.Future<_i3.DetailSurah>);
+      ) as _i7.Future<_i3.DetailSurah>);
+  @override
+  _i7.Future<_i4.DetailJuz> readDetailJuz(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #readDetailJuz,
+          [id],
+        ),
+        returnValue: _i7.Future<_i4.DetailJuz>.value(_FakeDetailJuz_2(
+          this,
+          Invocation.method(
+            #readDetailJuz,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i4.DetailJuz>);
 }
 
 /// A class which mocks [Client].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHttpClient extends _i1.Mock implements _i4.Client {
+class MockHttpClient extends _i1.Mock implements _i5.Client {
   MockHttpClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i4.Response> head(
+  _i7.Future<_i5.Response> head(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -172,7 +248,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #head,
@@ -180,9 +256,9 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             {#headers: headers},
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<_i4.Response> get(
+  _i7.Future<_i5.Response> get(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -192,7 +268,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #get,
@@ -200,13 +276,13 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             {#headers: headers},
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<_i4.Response> post(
+  _i7.Future<_i5.Response> post(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i12.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -218,7 +294,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             #encoding: encoding,
           },
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #post,
@@ -230,13 +306,13 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             },
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<_i4.Response> put(
+  _i7.Future<_i5.Response> put(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i12.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -248,7 +324,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             #encoding: encoding,
           },
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #put,
@@ -260,13 +336,13 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             },
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<_i4.Response> patch(
+  _i7.Future<_i5.Response> patch(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i12.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -278,7 +354,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             #encoding: encoding,
           },
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #patch,
@@ -290,13 +366,13 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             },
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<_i4.Response> delete(
+  _i7.Future<_i5.Response> delete(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i12.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -308,7 +384,7 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             #encoding: encoding,
           },
         ),
-        returnValue: _i6.Future<_i4.Response>.value(_FakeResponse_2(
+        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_3(
           this,
           Invocation.method(
             #delete,
@@ -320,9 +396,9 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
             },
           ),
         )),
-      ) as _i6.Future<_i4.Response>);
+      ) as _i7.Future<_i5.Response>);
   @override
-  _i6.Future<String> read(
+  _i7.Future<String> read(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -332,10 +408,10 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<String>.value(''),
-      ) as _i6.Future<String>);
+        returnValue: _i7.Future<String>.value(''),
+      ) as _i7.Future<String>);
   @override
-  _i6.Future<_i13.Uint8List> readBytes(
+  _i7.Future<_i17.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -345,24 +421,24 @@ class MockHttpClient extends _i1.Mock implements _i4.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
-      ) as _i6.Future<_i13.Uint8List>);
+        returnValue: _i7.Future<_i17.Uint8List>.value(_i17.Uint8List(0)),
+      ) as _i7.Future<_i17.Uint8List>);
   @override
-  _i6.Future<_i4.StreamedResponse> send(_i4.BaseRequest? request) =>
+  _i7.Future<_i5.StreamedResponse> send(_i5.BaseRequest? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #send,
           [request],
         ),
         returnValue:
-            _i6.Future<_i4.StreamedResponse>.value(_FakeStreamedResponse_3(
+            _i7.Future<_i5.StreamedResponse>.value(_FakeStreamedResponse_4(
           this,
           Invocation.method(
             #send,
             [request],
           ),
         )),
-      ) as _i6.Future<_i4.StreamedResponse>);
+      ) as _i7.Future<_i5.StreamedResponse>);
   @override
   void close() => super.noSuchMethod(
         Invocation.method(
