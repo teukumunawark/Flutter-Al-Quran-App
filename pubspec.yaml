@@ -17,11 +17,14 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_svg: ^1.1.6
+  flutter_switch: ^0.3.2
   get_it: ^7.1.3
   go_router: ^6.0.0
   google_fonts: ^3.0.1
   http: ^0.13.3
+  hydrated_bloc: ^9.0.0
   lottie: ^2.1.0
+  path_provider: ^2.0.11
   sqflite: ^2.2.2
 
 dev_dependencies:

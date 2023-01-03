@@ -9,6 +9,14 @@ const Color kWhite = Color(0xffFFFFFF);
 const Color kBlack = Color(0xff240F4F);
 const Color kGrey = Color(0xffF3EFF4);
 
+const Color kDark = Color(0xff040C23);
+const Color kSecondDark = Color(0xff121931);
+
+const Color kLight = Color(0xffffffff);
+
+const Color kBackGroundDark = Color(0xff040C23);
+const Color kBackGroundLight = Color(0xffffffff);
+
 final TextStyle kHeading4 = GoogleFonts.poppins(
   fontSize: 28,
   fontWeight: FontWeight.w700,
@@ -43,15 +51,31 @@ final kTextTheme = TextTheme(
   bodyText2: kBodyText,
 );
 
-ColorScheme kColorScheme = const ColorScheme(
-  primary: kMeteorite,
-  primaryContainer: kBlueViolet,
+ColorScheme kColorSchemeLight = const ColorScheme(
+  primary: kWhite,
+  primaryContainer: kWhite,
   secondary: kLightSalmon,
   secondaryContainer: kLightSalmon,
-  surface: kWhite,
+  surface: kDark,
   background: kWhite,
   error: Colors.red,
-  onPrimary: kBlueViolet,
+  onPrimary: kDark,
+  onSecondary: Colors.white,
+  onSurface: Colors.white,
+  onBackground: Colors.white,
+  onError: Colors.white,
+  brightness: Brightness.light,
+);
+
+ColorScheme kColorSchemeDark = const ColorScheme(
+  primary: kDark,
+  primaryContainer: kDark,
+  secondary: kLightSalmon,
+  secondaryContainer: kLightSalmon,
+  surface: kDark,
+  background: kDark,
+  error: Colors.red,
+  onPrimary: kDark,
   onSecondary: Colors.white,
   onSurface: Colors.white,
   onBackground: Colors.white,
