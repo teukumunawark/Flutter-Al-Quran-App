@@ -1,24 +1,32 @@
 import 'dart:convert';
 
 import 'package:al_quran_app/common/exception.dart';
-import 'package:al_quran_app/data/models/detail_juz_model/detail_juz_model.dart';
+import 'package:al_quran_app/data/models/jadwal_shalat_response.dart';
+import 'package:al_quran_app/data/models/jadwal_sholat_model/jadwal_sholat_model.dart';
 import 'package:al_quran_app/data/models/juz_response.dart';
-import 'package:al_quran_app/data/models/list_juz_models/juz_model.dart';
 import 'package:al_quran_app/data/models/surah_response.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart';
 
-import '../models/detail_surah_model/detail_surah_model.dart';
-import '../models/list_surah_models/surah_model.dart';
+import '../models/surah_model/detail_surah_model/detail_surah_model.dart';
+import '../models/juz_model/detail_juz_model.dart';
+import '../models/juz_model/juz_model.dart';
+import '../models/surah_model/list_surah_models/surah_model.dart';
 
 abstract class SurahRemoteDataSource {
   Future<List<SurahModel>> readListSurah();
   Future<List<JuzModel>> readListJuz();
   Future<DetailSurah> readDetailSurah(String id);
   Future<DetailJuz> readDetailJuz(String id);
+  Future<List<JadwalModel>> getJadwalShalat(String month);
 }
 
 class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
-  SurahRemoteDataSourceImpl();
+  SurahRemoteDataSourceImpl({required this.client});
+
+  final Client client;
+
+  static const baseURL = "https://api.myquran.com/v1/sholat/jadwal/0103/2023";
 
   // if you want to hit endpoint for get list surah you can use this function
   // ========================================================================
@@ -82,6 +90,16 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
       );
       return DetailSurah.fromJson(json.decode(response)['data']);
     } catch (e) {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<JadwalModel>> getJadwalShalat(String month) async {
+    final response = await client.get(Uri.parse("$baseURL/$month"));
+    if (response.statusCode == 200) {
+      return JadwalResponse.fromJson(json.decode(response.body)).jadwal;
+    } else {
       throw ServerException();
     }
   }
