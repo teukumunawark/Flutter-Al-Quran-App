@@ -11,10 +11,10 @@ class SurahEmpty extends QuranState {}
 
 class QuranLoading extends QuranState {}
 
-class SurahError extends QuranState {
+class QuranError extends QuranState {
   final String message;
 
-  const SurahError(this.message);
+  const QuranError(this.message);
 
   @override
   List<Object> get props => [message];
@@ -54,4 +54,13 @@ class DetailJuzHasData extends QuranState {
 
   @override
   List<Object> get props => [detailJuz];
+}
+
+class JadwalHasData extends QuranState {
+  final List<JadwalEntities> jadwal;
+
+  const JadwalHasData(this.jadwal);
+
+  @override
+  List<Object> get props => [jadwal];
 }

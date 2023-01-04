@@ -1,5 +1,5 @@
 import 'package:al_quran_app/common/theme_bloc.dart';
-import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart';
+import 'package:al_quran_app/domain/entities/juz_entities/detail_juz_entities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,7 +39,7 @@ class _DetailJuzPageState extends State<DetailJuzPage> {
             return const BuildAnimationLoading();
           } else if (state is DetailJuzHasData) {
             return BuildDetail(state.detailJuz);
-          } else if (state is SurahError) {
+          } else if (state is QuranError) {
             return ErrorMessage(message: state.message);
           } else {
             return const ErrorMessage(message: "Failed");

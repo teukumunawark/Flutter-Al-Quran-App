@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'list_surah_models/surah_model.dart';
+import 'surah_model/list_surah_models/surah_model.dart';
 
 class SurahResponse extends Equatable {
   final List<SurahModel> surahList;

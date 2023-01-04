@@ -68,7 +68,7 @@ void main() {
   });
 
   group("Detail Surah", () {
-    const tId = 1;
+    const String tId = "1";
 
     test(
       "Initial state should be Loading",

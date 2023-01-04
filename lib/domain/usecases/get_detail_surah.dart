@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 
 import '../../common/failure.dart';
-import '../entities/detail_surah_entities/detail_surah_entities.dart';
+import '../entities/surah_entities/detail_surah_entities/detail_surah_entities.dart';
 import '../repositories/quran_repository.dart';
 
 class GetDetailSurah {
-  final SurahRepository repository;
+  final QuranRepository repository;
 
   GetDetailSurah(this.repository);
 

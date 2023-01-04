@@ -28,3 +28,12 @@ class OnDetailJuz extends QuranEvent {
   @override
   List<Object> get props => [id];
 }
+
+class OnJadwalShalat extends QuranEvent {
+  final String month;
+
+  const OnJadwalShalat(this.month);
+
+  @override
+  List<Object> get props => [month];
+}

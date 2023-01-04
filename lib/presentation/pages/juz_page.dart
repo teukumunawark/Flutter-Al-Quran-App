@@ -1,4 +1,4 @@
-import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart';
+import 'package:al_quran_app/domain/entities/juz_entities/juz_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +17,7 @@ class JuzPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else if (state is JuzHasData) {
             return BuildJuzList(state.juzList);
-          } else if (state is SurahError) {
+          } else if (state is QuranError) {
             return Center(child: Text(state.message));
           } else {
             return const Center(child: Text("Failed"));

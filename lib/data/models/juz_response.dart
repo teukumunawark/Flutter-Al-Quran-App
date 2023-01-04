@@ -1,5 +1,6 @@
-import 'package:al_quran_app/data/models/list_juz_models/juz_model.dart';
 import 'package:equatable/equatable.dart';
+
+import 'juz_model/juz_model.dart';
 
 class JuzResponse extends Equatable {
   final List<JuzModel> listJuz;

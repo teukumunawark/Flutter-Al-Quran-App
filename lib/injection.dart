@@ -49,12 +49,12 @@ void init() {
       ));
 
   // REPOSITORY
-  locator.registerLazySingleton<SurahRepository>(
+  locator.registerLazySingleton<QuranRepository>(
     () => SurahRepositoryImpl(remoteDataSource: locator()),
   );
   // DATA SOURCE
   locator.registerLazySingleton<SurahRemoteDataSource>(
-    () => SurahRemoteDataSourceImpl(),
+    () => SurahRemoteDataSourceImpl(client: locator()),
   );
 
   // EXTERNAL

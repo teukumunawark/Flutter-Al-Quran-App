@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../common/constants.dart';
-import '../../domain/entities/list_surah_entities/surah_entities.dart';
+import '../../domain/entities/surah_entities/list_surah_entities/surah_entities.dart';
 
 class SurahListCard extends StatelessWidget {
   const SurahListCard(this.surah, {super.key});

@@ -1,6 +1,6 @@
 import 'package:al_quran_app/common/constants.dart';
 import 'package:al_quran_app/common/theme_bloc.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/detail_surah_entities.dart';
 import 'package:al_quran_app/presentation/bloc/quran_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +39,7 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
             return const BuildAnimationLoading();
           } else if (state is DetailSurahHasData) {
             return BuildDetail(state.detailSurah);
-          } else if (state is SurahError) {
+          } else if (state is QuranError) {
             return ErrorMessage(message: state.message);
           } else {
             return const ErrorMessage(message: "Failed");
