@@ -6,9 +6,9 @@
 import 'dart:async' as _i5;
 
 import 'package:al_quran_app/common/failure.dart' as _i6;
-import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart'
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/detail_surah_entities.dart'
     as _i9;
-import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/surah_entities.dart'
     as _i7;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i2;
 import 'package:al_quran_app/domain/usecases/get_detail_surah.dart' as _i8;

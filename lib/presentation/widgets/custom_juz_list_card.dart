@@ -1,4 +1,4 @@
-import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart';
+import 'package:al_quran_app/domain/entities/juz_entities/juz_entities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

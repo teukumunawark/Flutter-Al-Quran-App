@@ -11,19 +11,19 @@ import 'package:al_quran_app/common/failure.dart' as _i8;
 import 'package:al_quran_app/data/datasources/quran_data_source.dart' as _i13;
 import 'package:al_quran_app/data/models/detail_juz_model/detail_juz_model.dart'
     as _i4;
-import 'package:al_quran_app/data/models/detail_surah_model/detail_surah_model.dart'
+import 'package:al_quran_app/data/models/surah_model/detail_surah_model/detail_surah_model.dart'
     as _i3;
 import 'package:al_quran_app/data/models/list_juz_models/juz_model.dart'
     as _i15;
-import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart'
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/surah_model.dart'
     as _i14;
-import 'package:al_quran_app/domain/entities/detail_juz_entities/detail_juz_entities.dart'
+import 'package:al_quran_app/domain/entities/juz_entities/detail_juz_entities.dart'
     as _i12;
-import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart'
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/detail_surah_entities.dart'
     as _i11;
-import 'package:al_quran_app/domain/entities/list_juz_entities/juz_entities.dart'
+import 'package:al_quran_app/domain/entities/juz_entities/juz_entities.dart'
     as _i10;
-import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart'
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/surah_entities.dart'
     as _i9;
 import 'package:al_quran_app/domain/repositories/quran_repository.dart' as _i6;
 import 'package:dartz/dartz.dart' as _i2;

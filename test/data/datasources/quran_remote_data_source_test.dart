@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:al_quran_app/common/exception.dart';
 import 'package:al_quran_app/data/datasources/quran_data_source.dart';
-import 'package:al_quran_app/data/models/detail_surah_model/detail_surah_model.dart';
+import 'package:al_quran_app/data/models/surah_model/detail_surah_model/detail_surah_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

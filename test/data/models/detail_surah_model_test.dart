@@ -1,17 +1,17 @@
-import 'package:al_quran_app/domain/entities/detail_surah_entities/audio_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/detail_surah_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/id_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/meta_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/number_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/pre_bismillah_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/sajda_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/tafsir_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/text_entities.dart';
-import 'package:al_quran_app/domain/entities/detail_surah_entities/verse_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/name_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/revelation_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/tafsir_id_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/translation_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/audio_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/detail_surah_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/id_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/meta_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/number_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/pre_bismillah_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/sajda_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/tafsir_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/text_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/detail_surah_entities/verse_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/name_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/revelation_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/tafsir_id_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/translation_entities.dart';
 
 void main() {
   const tDetailSurahEntities = DetailSurahEntities(

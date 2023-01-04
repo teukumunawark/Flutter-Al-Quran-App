@@ -1,13 +1,13 @@
-import 'package:al_quran_app/data/models/list_surah_models/name_model.dart';
-import 'package:al_quran_app/data/models/list_surah_models/revalation_model.dart';
-import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart';
-import 'package:al_quran_app/data/models/list_surah_models/tafsir_model.dart';
-import 'package:al_quran_app/data/models/list_surah_models/translation_model.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/name_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/revelation_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/surah_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/tafsir_id_entities.dart';
-import 'package:al_quran_app/domain/entities/list_surah_entities/translation_entities.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/name_model.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/revalation_model.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/surah_model.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/tafsir_model.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/translation_model.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/name_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/revelation_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/surah_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/tafsir_id_entities.dart';
+import 'package:al_quran_app/domain/entities/surah_entities/list_surah_entities/translation_entities.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

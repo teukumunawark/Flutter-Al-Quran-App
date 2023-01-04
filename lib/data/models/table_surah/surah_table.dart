@@ -1,4 +1,4 @@
-import 'package:al_quran_app/data/models/list_surah_models/surah_model.dart';
+import 'package:al_quran_app/data/models/surah_model/list_surah_models/surah_model.dart';
 import 'package:equatable/equatable.dart';
 
 class SurahTable extends Equatable {
